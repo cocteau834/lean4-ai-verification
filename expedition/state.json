@@ -1,0 +1,8 @@
+{
+ "engine": 2,
+ "toolchain": "leanprover/lean4:v4.36.0",
+ "players": {},
+ "snapshots": {},
+ "cache": {},
+ "updated": "2026-11-22T20:54:48+00:00"
+}
