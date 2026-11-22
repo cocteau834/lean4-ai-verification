@@ -6,6 +6,11 @@ Replace each *answer here* line with your answer (a few words is fine). Tick box
 
 ---
 
+**First, the important question. Pick your expedition animal** (one emoji, or just type the animal's name; it appears next to your name on your map and the scoreboard, e.g. 🦦 🐧 🦊 🐙):
+_answer here_
+
+Every quest also hides an egg 🥚. Clear the quest and an animal companion hatches into your menagerie. There are 20 to collect.
+
 ## Why this game exists (2-minute read)
 
 AI can now write proofs, code and plans faster than anyone can check them by hand. So one question gets more valuable every year: **how do we know it's right?**

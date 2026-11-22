@@ -45,6 +45,8 @@ Then:
 1. **Basecamp:** open `Players/YourName/intake.md` and answer the questions (15–20 minutes). It starts with a 2-minute "why this game exists" and a tour of the seven regions of the field, each of which you rate by interest. Push it. The Game Master plans **your** route from this.
 2. **Quest 00:** open `Players/YourName/quests/Q00_Orientation.lean`, a 20-minute tour of the Lean moves you'll use everywhere. Play it while your route is being planned.
 
+Every quest hides an egg 🥚. Clear the quest and an animal companion hatches into the menagerie on your map (and does a little hatching animation in your terminal the first time `status` sees it).
+
 `join` also remembers your name on this computer, so later commands (`status`, `hint`, `detour`) know who you are.
 
 ## Using Lean in VS Code

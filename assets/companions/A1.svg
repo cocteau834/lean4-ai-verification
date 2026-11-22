@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120" role="img" aria-label="Patch the frog">
+<title>Patch the frog</title>
+<style>
+.bob{animation:bob 2.6s ease-in-out infinite}
+.blink{transform-box:fill-box;transform-origin:center;animation:blink 4.2s infinite}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+@keyframes blink{0%,91%,100%{transform:scaleY(1)}94%{transform:scaleY(.12)}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+.tongue{transform-box:view-box;transform-origin:64px 68px;transform:scale(0);animation:zap 3s ease-in-out infinite}@keyframes zap{0%,70%,100%{transform:scale(0)}78%,84%{transform:scale(1)}}.bug{animation:buzz 3s ease-in-out infinite}@keyframes buzz{0%{transform:translate(4px,6px)}35%{transform:translate(-6px,-4px)}70%{transform:translate(0,0)}82%{transform:translate(-26px,26px) scale(.2);opacity:0}83%,100%{opacity:0}}</style>
+<defs><clipPath id="badge"><circle cx="60" cy="60" r="57"/></clipPath></defs>
+<circle cx="60" cy="60" r="57" fill="#ebe2fb"/>
+<g clip-path="url(#badge)">
+<ellipse cx="60" cy="103" rx="30" ry="5" fill="#2b2433" opacity=".12"/>
+
+<g class="bug"><ellipse cx="92" cy="40" rx="4.5" ry="3.5" fill="#3d3a45"/><ellipse cx="90" cy="36" rx="3.5" ry="2" fill="#cdeefe" opacity=".9"/>
+<ellipse cx="95" cy="36" rx="3.5" ry="2" fill="#cdeefe" opacity=".9"/></g>
+<ellipse cx="60" cy="82" rx="28" ry="19" fill="#7cc96b" stroke="#2b2433" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<ellipse cx="60" cy="88" rx="17" ry="11" fill="#d6f5c3"/>
+<ellipse cx="60" cy="62" rx="26" ry="16" fill="#7cc96b" stroke="#2b2433" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="45" cy="50" r="10" fill="#7cc96b" stroke="#2b2433" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><circle cx="75" cy="50" r="10" fill="#7cc96b" stroke="#2b2433" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="45" cy="50" r="6" fill="#fff"/><circle cx="75" cy="50" r="6" fill="#fff"/>
+<g class="blink"><circle cx="46" cy="51" r="3.6" fill="#2b2433"/><circle cx="47.4" cy="49.5" r="1.19" fill="#fff"/></g><g class="blink"><circle cx="76" cy="51" r="3.6" fill="#2b2433"/><circle cx="77.4" cy="49.5" r="1.19" fill="#fff"/></g>
+<path d="M46 66 q14 8 28 0" fill="none" stroke="#2b2433" stroke-linejoin="round" stroke-linecap="round" stroke-width="2.5"/>
+<g class="tongue"><path d="M64 68 L90 42" stroke="#ff7b93" stroke-width="3.5" stroke-linecap="round"/><circle cx="90" cy="42" r="3" fill="#ff7b93"/></g>
+<ellipse cx="40" cy="64" rx="4.6" ry="2.8" fill="#ff8fa3" opacity=".6"/><ellipse cx="80" cy="64" rx="4.6" ry="2.8" fill="#ff8fa3" opacity=".6"/>
+<ellipse cx="40" cy="99" rx="9" ry="4" fill="#5fb04f" stroke="#2b2433" stroke-linejoin="round" stroke-linecap="round" stroke-width="2.4"/><ellipse cx="80" cy="99" rx="9" ry="4" fill="#5fb04f" stroke="#2b2433" stroke-linejoin="round" stroke-linecap="round" stroke-width="2.4"/>
+
+</g>
+</svg>

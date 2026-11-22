@@ -33,12 +33,14 @@ from __future__ import annotations
 
 import argparse
 import hashlib
+import html
 import json
 import os
 import re
 import shutil
 import subprocess
 import sys
+import time
 from concurrent.futures import ThreadPoolExecutor
 from dataclasses import dataclass, field
 from datetime import datetime, timezone
@@ -49,6 +51,7 @@ QUESTS_DIR = ROOT / "Quests"
 PLAYERS_DIR = ROOT / "Players"
 TEMPLATE_DIR = PLAYERS_DIR / "_template"
 CUSTOM_DIR = ROOT / "expedition" / "custom"
+COMPANION_DIR = ROOT / "assets" / "companions"
 META_FILE = ROOT / "expedition" / "quests.json"
 STATE_FILE = ROOT / "expedition" / "state.json"
 HISTORY_FILE = ROOT / "expedition" / "history.jsonl"
@@ -262,6 +265,8 @@ class Quest:
     ratings: dict[str, int] = field(default_factory=dict)     # criterion id -> 0..3
     features: dict[str, str] = field(default_factory=dict)    # feature id -> "yes" | "optional"
     difficulty: int | None = None                             # 1..3
+    companion: dict = field(default_factory=dict)             # name, animal, emoji, says
+    art: Path | None = None                                   # the companion's animated SVG
 
 
 @dataclass
@@ -323,12 +328,14 @@ def quests_for(player: str, meta: dict, route: dict) -> list[Quest]:
     entries = [(e, False) for e in meta["quests"]] + [(e, True) for e in route.get("custom", [])]
     for e, custom in entries:
         kind = e.get("kind", "lean")
+        art = COMPANION_DIR / f"{e['id']}.svg"
         if kind == "intake":
             template, dest, hints, card = TEMPLATE_DIR / e["file"], pdir / e["file"], None, None
         elif custom:
             template, dest = CUSTOM_DIR / player / e["file"], pdir / "quests" / e["file"]
             hints = CUSTOM_DIR / player / "hints" / f"{e['id']}.md"
             card = CUSTOM_DIR / player / "cards" / f"{e['id']}.md"
+            art = CUSTOM_DIR / player / "companions" / f"{e['id']}.svg"
         else:
             template, dest = QUESTS_DIR / e["file"], pdir / "quests" / e["file"]
             hints = QUESTS_DIR / "hints" / f"{e['id']}.md"
@@ -344,6 +351,7 @@ def quests_for(player: str, meta: dict, route: dict) -> list[Quest]:
             ratings={k: int(v) for k, v in e.get("ratings", {}).items() if int(v) > 0},
             features={k: str(v) for k, v in e.get("features", {}).items() if v},
             difficulty=e.get("difficulty"),
+            companion=dict(e.get("companion", {})), art=art if art.exists() else None,
         ))
     return out
 
@@ -479,6 +487,106 @@ def format_mix(mix: dict[str, float], meta: dict) -> str:
     return " · ".join(f"{c['emoji']} {round(100 * v)}%" for c, v in rows)
 
 
+# ───────────────────────────── companions (the menagerie) ─────────────────────────────
+
+ANIMAL_WORDS = {"otter": "🦦", "penguin": "🐧", "fox": "🦊", "cat": "🐱", "dog": "🐶", "owl": "🦉", "panda": "🐼",
+                "koala": "🐨", "bunny": "🐰", "rabbit": "🐰", "frog": "🐸", "octopus": "🐙", "sloth": "🦥",
+                "hedgehog": "🦔", "turtle": "🐢", "whale": "🐳", "dolphin": "🐬", "tiger": "🐯", "lion": "🦁",
+                "bear": "🐻", "unicorn": "🦄", "dragon": "🐉", "monkey": "🐵", "elephant": "🐘", "giraffe": "🦒",
+                "horse": "🐴", "pig": "🐷", "cow": "🐮", "goat": "🐐", "sheep": "🐑", "duck": "🦆", "bee": "🐝",
+                "butterfly": "🦋", "shark": "🦈", "seal": "🦭", "raccoon": "🦝", "hamster": "🐹", "mouse": "🐭",
+                "wolf": "🐺", "parrot": "🦜", "flamingo": "🦩", "llama": "🦙", "alpaca": "🦙", "crab": "🦀"}
+
+
+def companion_label(q: Quest) -> str:
+    c = q.companion
+    return f"{c.get('name', 'A mystery creature')} the {c.get('animal', 'creature')}" if c else ""
+
+
+def companion_stage(q: Quest, r: Result) -> str:
+    """egg (not started) → cracked (puzzles started) → hatched (quest cleared)."""
+    if r.status == "cleared":
+        return "hatched"
+    if r.solved > 0 or r.status in ("progress", "broken", "tampered"):
+        return "cracked"
+    return "egg"
+
+
+def companion_img(q: Quest, r: Result, width: int = 64, base: str = "../../") -> str:
+    stage = companion_stage(q, r)
+    c = q.companion
+    if stage == "hatched":
+        alt, tip = companion_label(q), f"{companion_label(q)} · {q.id} {q.title}: {c.get('says', '')}"
+        if not q.art:
+            return f'<span title="{html.escape(tip)}">{c.get("emoji", "🐣")}</span>'
+        src = base + q.art.relative_to(ROOT).as_posix()
+    elif stage == "cracked":
+        alt, tip, src = "A hatching egg", f"Hatching… keep going on {q.id} · {q.title}", base + "assets/companions/_egg_cracked.svg"
+    else:
+        alt, tip, src = "A mystery egg", f"A mystery egg. Clear {q.id} · {q.title} to hatch it.", base + "assets/companions/_egg.svg"
+    return (f'<img src="{src}" width="{width}" height="{width}" alt="{html.escape(alt)}" '
+            f'title="{html.escape(tip)}">')
+
+
+def parse_avatar(text: str) -> str:
+    """The player's expedition animal: the first answer line after 'Pick your expedition animal' in the intake.
+    An emoji is used as is; a common animal word (e.g. "otter") is turned into its emoji."""
+    lines = text.splitlines()
+    for i, line in enumerate(lines):
+        if "expedition animal" not in line.lower():
+            continue
+        for nxt in lines[i + 1:i + 4]:
+            s = nxt.strip()
+            if not s:
+                continue
+            if s == PLACEHOLDER:
+                return ""
+            word = s.split()[0]
+            if any(ord(ch) > 0x2000 for ch in word):
+                return word[:12]
+            w = word.lower().strip(".,!")
+            return ANIMAL_WORDS.get(w) or ANIMAL_WORDS.get(w.rstrip("s"), "")
+        return ""
+    return ""
+
+
+def hatched_quests(rep: "PlayerReport", history: list[dict] | None = None) -> list[Quest]:
+    """Cleared quests with a companion, in the order they were cleared."""
+    got = [q for q in rep.quests if q.companion and rep.results[q.id].status == "cleared"]
+    when = {}
+    for e in history or []:
+        if e.get("player") == rep.name and e.get("event") == "cleared":
+            when.setdefault(e.get("quest"), e.get("t", ""))
+    order = {q.id: i for i, q in enumerate(rep.quests)}
+    return sorted(got, key=lambda q: (when.get(q.id, "9999"), order[q.id]))
+
+
+def render_menagerie(rep: "PlayerReport", history: list[dict]) -> list[str]:
+    qs = [q for q in rep.quests if q.companion and (not q.hidden or q.dest.exists())]
+    hatched = hatched_quests(rep, history)
+    lines = [f"## 🐾 Your menagerie · {len(hatched)} of {len(qs)} hatched", ""]
+    if hatched:
+        q = hatched[-1]
+        lines += [f"> 🎉 **Newest friend:** {q.companion.get('emoji', '')} **{companion_label(q)}** "
+                  f"({q.id} · {q.title}): *{q.companion.get('says', '')}*", ""]
+    lines.append("<p>" + " ".join(companion_img(q, rep.results[q.id]) for q in qs) + "</p>")
+    lines += ["", "<sub>Every quest hides an egg. 🥚 waiting · 🐣 hatching (you've started that quest) · "
+              "clear the quest to hatch its companion. Hover over one to meet it.</sub>", ""]
+    return lines
+
+
+def hatch_celebration(q: Quest) -> None:
+    """A two-second hatching animation in the terminal (plain text when output isn't a terminal)."""
+    c = q.companion
+    emoji = c.get("emoji", "🐣")
+    if sys.stdout.isatty():
+        for frame in ["🥚    ", " 🥚   ", "🥚    ", "  🥚  ", "🥚    ", "🥚💥  ", "🐣    ", f"{emoji} ✨  "]:
+            print("\r    " + frame, end="", flush=True)
+            time.sleep(0.25)
+        print("\r" + " " * 24 + "\r", end="")
+    print(f"\n  {emoji}  {companion_label(q)} hatched!  “{c.get('says', '')}”")
+
+
 # ───────────────────────────── git + journal signals ─────────────────────────────
 
 
@@ -540,6 +648,7 @@ class PlayerReport:
     badges: list[tuple[str, str, str]] = field(default_factory=list)
     interests: dict[str, int] = field(default_factory=dict)
     mix: dict[str, float] = field(default_factory=dict)
+    avatar: str = ""
 
 
 def evaluate(players: list[str], meta: dict, lake: str | None, text_only: bool,
@@ -597,6 +706,7 @@ def evaluate(players: list[str], meta: dict, lake: str | None, text_only: bool,
         rep.next_rank = next(((need, name) for need, name in ranks if need > rep.xp), None)
         rep.badges = compute_badges(rep)
         rep.interests = parse_interests(read(PLAYERS_DIR / p / "intake.md"), meta)
+        rep.avatar = parse_avatar(read(PLAYERS_DIR / p / "intake.md"))
         rep.mix = ratings_mix(qs, results)
         reports.append(rep)
     return reports, set(jobs.values())
@@ -674,6 +784,8 @@ BADGES = [
     ("🤖", "Machine Whisperer", "cleared the whole Machine Whisperer's Path"),
     ("🏛️", "Systems Verifier", "cleared the whole Verified Systems Path"),
     ("🗡️", "Made For You", "cleared a custom quest"),
+    ("🐾", "Zookeeper", "hatched 10 companions"),
+    ("🦄", "Full Menagerie", "hatched every companion on your route"),
     ("🦉", "Night Owl", "pushed work between midnight and 5am"),
     ("📅", "Three Days", "worked on three different days"),
     ("📓", "Field Scientist", "wrote 3+ log entries"),
@@ -686,6 +798,7 @@ def compute_badges(rep: PlayerReport) -> list[tuple[str, str, str]]:
     R = rep.results
     cleared = {qid for qid, r in R.items() if r.status == "cleared"}
     lean_solved = sum(R[q.id].solved for q in rep.quests if q.kind == "lean")
+    zoo = [q for q in rep.quests if q.companion and not q.hidden]
 
     def track_done(track: str) -> bool:
         ids = [q.id for q in rep.quests if q.track == track and not q.hidden]
@@ -705,6 +818,8 @@ def compute_badges(rep: PlayerReport) -> list[tuple[str, str, str]]:
         "Machine Whisperer": track_done("ai"),
         "Systems Verifier": track_done("verified"),
         "Made For You": any(q.custom and q.id in cleared for q in rep.quests),
+        "Zookeeper": sum(1 for q in rep.quests if q.companion and q.id in cleared) >= 10,
+        "Full Menagerie": bool(zoo) and all(q.id in cleared for q in zoo),
         "Night Owl": rep.activity["night_owl"],
         "Three Days": rep.activity["days"] >= 3,
         "Field Scientist": len(rep.logs) >= 3,
@@ -855,7 +970,9 @@ def render_cards(rep: PlayerReport, history: list[dict]) -> str:
     if not got:
         lines.append("_Clear your first quest to collect a card._")
     for q in got:
-        lines += ["---", "", read(q.card).strip(), ""]
+        art = companion_img(q, rep.results[q.id], width=88) if q.companion else ""
+        art = art.replace("<img ", '<img align="right" ', 1) if art.startswith("<img") else art
+        lines += ["---", "", art, "", read(q.card).strip(), ""]
     return "\n".join(lines).rstrip() + "\n"
 
 
@@ -942,7 +1059,7 @@ def render_map(rep: PlayerReport, meta: dict, history: list[dict]) -> str:
     route_note = rep.route.get("summary")
     hints_total = sum(v.get("level", 0) for v in rep.hints_used.values())
     lines = [
-        f"# 🗺️ {rep.name}'s map",
+        f"# {rep.avatar or '🗺️'} {rep.name}'s map",
         "",
         "_Rewritten automatically after every push. Don't edit it; edit your quest files and log.md._",
         "",
@@ -963,6 +1080,7 @@ def render_map(rep: PlayerReport, meta: dict, history: list[dict]) -> str:
     else:
         lines += ["> 🧭 Your intake is in. The Game Master will plan your personal route soon. "
                   "Keep playing; nothing is wasted.", ""]
+    lines += render_menagerie(rep, history)
     lines += ["## Next up", ""]
     nxt = next_up(rep)
     if not nxt:
@@ -1033,9 +1151,14 @@ def render_map(rep: PlayerReport, meta: dict, history: list[dict]) -> str:
     lines += ["", "## Your trail", "", "<sub>Newest first · times in UTC</sub>", ""]
     if not mine:
         lines.append("_Your trail starts with your first push._")
+    by_id = {q.id: q for q in rep.quests}
     for e in reversed(mine[-12:]):
         stamp = (e.get("t") or "")[:16].replace("T", " ")
-        lines.append(f"- `{stamp}` {EVENT_EMOJI.get(e['event'], '•')} {describe_event(e)}")
+        extra = ""
+        q = by_id.get(e.get("quest"))
+        if e["event"] == "cleared" and q and q.companion:
+            extra = f" and hatched {q.companion.get('emoji', '')} {companion_label(q)}"
+        lines.append(f"- `{stamp}` {EVENT_EMOJI.get(e['event'], '•')} {describe_event(e)}{extra}")
     if len(mine) > 12:
         lines.append(f"- … and {len(mine) - 12} earlier events in `expedition/history.jsonl`")
     legend = " · ".join(f"{c['emoji']} {c['name']}" for c in criteria(meta))
@@ -1050,16 +1173,18 @@ def render_readme_section(reports: list[PlayerReport], meta: dict) -> str:
     if not reports:
         lines += ["No verifiers yet. Run `python3 scripts/expedition.py join YourName`, then commit and push.", ""]
         return "\n".join(lines)
-    lines += ["| Verifier | Rank | XP | Cleared | Puzzles solved | Basecamp | Route | Badges |",
-              "|---|---|---:|---:|---:|:---:|:---:|---|"]
+    lines += ["| Verifier | Rank | XP | Cleared | Puzzles solved | Basecamp | Route | Menagerie | Badges |",
+              "|---|---|---:|---:|---:|:---:|:---:|---|---|"]
     for rep in reports:
         cleared = sum(1 for r in rep.results.values() if r.status == "cleared")
         solved = sum(rep.results[q.id].solved for q in rep.quests if q.kind == "lean")
         basecamp = "✅" if rep.results.get("B00") and rep.results["B00"].status == "cleared" else "⏳"
         route = "🧭" if rep.route else "—"
         badges = " ".join(e for e, _, _ in rep.badges)
-        lines.append(f"| [{rep.name}](Players/{rep.name}/MAP.md) | {rep.rank} | {rep.xp} | {cleared} | {solved} | "
-                     f"{basecamp} | {route} | {badges} |")
+        zoo = "".join(q.companion.get("emoji", "") for q in hatched_quests(rep, load_history())) or "🥚"
+        who = f"{rep.avatar} " if rep.avatar else ""
+        lines.append(f"| {who}[{rep.name}](Players/{rep.name}/MAP.md) | {rep.rank} | {rep.xp} | {cleared} | {solved} | "
+                     f"{basecamp} | {route} | {zoo} | {badges} |")
     lines += ["", "#### Quest board", "", "| Quest | " + " | ".join(r.name for r in reports) + " |",
               "|---|" + ":---:|" * len(reports)]
     for e in meta["quests"]:
@@ -1107,6 +1232,8 @@ def report_json(reports: list[PlayerReport], history: list[dict], with_signals: 
             "stalled_quests": [qid for qid, s in signals.items() if s.get("stalled")],
             "career_cards": [q.id for q in collected_cards(rep, history)],
             "interests": rep.interests,
+            "avatar": rep.avatar,
+            "companions_hatched": [q.id for q in hatched_quests(rep, history)],
             "mix_so_far": rep.mix,
             "interest_matches": [q.id for q in interest_matches(rep)],
             "recent_trail": mine[-15:],
@@ -1184,6 +1311,7 @@ def cmd_join(name: str) -> int:
   First stop:    Players/{name}/intake.md   (10 min; the Game Master plans your route from it)
   First quest:   Players/{name}/quests/Q00_Orientation.lean   (a 20-minute tour of Lean)
   Stuck later?   python3 scripts/expedition.py hint <puzzle>
+  Every quest hides an egg 🥚. Clear the quest and an animal companion hatches.
 
 Now save your progress to GitHub:
   git add -A
@@ -1359,12 +1487,17 @@ def show_new_cards(reports: list[PlayerReport]) -> None:
     changed = False
     for rep in reports:
         mine = set(seen.get(rep.name, []))
-        for q in card_quests(rep):
-            if rep.results[q.id].status == "cleared" and q.id not in mine:
+        cards = {q.id for q in card_quests(rep)}
+        for q in rep.quests:
+            if rep.results[q.id].status != "cleared" or q.id in mine or not (q.companion or q.id in cards):
+                continue
+            if q.companion:
+                hatch_celebration(q)
+            if q.id in cards:
                 print("\n" + "═" * 72 + f"\n🎓 NEW CAREER CARD for {rep.name}\n\n" + read(q.card).strip() +
                       "\n\n(Push to add it to your CAREER_CARDS.md.)\n" + "═" * 72)
-                mine.add(q.id)
-                changed = True
+            mine.add(q.id)
+            changed = True
         seen[rep.name] = sorted(mine)
     if changed:
         try:

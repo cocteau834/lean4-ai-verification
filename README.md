@@ -21,6 +21,7 @@ flowchart LR
 
 - Every `sorry` in a quest file is a puzzle. **Lean is the only judge.** You can't bluff it, and neither can an AI.
 - After each push, a GitHub Action compiles your files, counts what you've proved, **unlocks new quests** into your folder, and redraws your map (`Players/<you>/MAP.md`).
+- **Every quest hides an egg.** 🥚 Start the quest and it cracks; clear it and an animal companion hatches into your **menagerie** with its own little animation: a goat behind door number 3, a frog that eats bugs, a raccoon that red-teams the grader, 20 in all. Your expedition animal (you pick it at Basecamp) sits next to your name on the scoreboard.
 - Every quest you clear unlocks a **career card** (`Players/<you>/CAREER_CARDS.md`): where that skill shows up in real AI and verification jobs, a stretch goal, and an honest résumé line. Notes marked 🧑‍🔬 ON THE JOB inside the quests make the same connection while you play.
 - The **Game Master** (Claude, with Dad in the loop) reads your intake, your logs and your actual proofs. It writes you dispatches, builds **custom quests just for you**, and reshapes your route. Your route won't look like your sibling's.
 
@@ -119,6 +120,7 @@ No verifiers yet. Run `python3 scripts/expedition.py join YourName`, then commit
 | `Quests/` | Quest templates (the library). Your copies live in your player folder. |
 | `Players/<you>/` | Your intake, quests, log, map, dispatches and route |
 | `tools/miniprover/` | An LLM + Lean proving loop (Quest A3 and the capstone) |
+| `assets/companions/` | The menagerie: one animated animal per quest, plus the eggs |
 | `docs/QUEST_GUIDE.md` | The seven regions of the field, and every quest rated on them (the table is generated from `expedition/quests.json`) |
 | `docs/CHEATSHEET.md` | Tactics, symbols, error messages and git, on one page |
 | `docs/FIELD_GUIDE.md` | How Lean thinks, how to get unstuck, how to search Mathlib, what you'll use where |

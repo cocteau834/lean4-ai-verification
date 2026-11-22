@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120" role="img" aria-label="Monty the goat">
+<title>Monty the goat</title>
+<style>
+.bob{animation:bob 2.6s ease-in-out infinite}
+.blink{transform-box:fill-box;transform-origin:center;animation:blink 4.2s infinite}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+@keyframes blink{0%,91%,100%{transform:scaleY(1)}94%{transform:scaleY(.12)}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+.chew{transform-box:fill-box;transform-origin:50% 0;animation:chew .45s ease-in-out infinite alternate}@keyframes chew{to{transform:translateY(1.8px) rotate(3deg)}}.earL{transform-box:fill-box;transform-origin:100% 50%;animation:flick 3s ease-in-out infinite}@keyframes flick{0%,85%,100%{transform:rotate(0)}90%{transform:rotate(-14deg)}}</style>
+<defs><clipPath id="badge"><circle cx="60" cy="60" r="57"/></clipPath></defs>
+<circle cx="60" cy="60" r="57" fill="#d9eaf9"/>
+<g clip-path="url(#badge)">
+<ellipse cx="60" cy="103" rx="30" ry="5" fill="#2b2433" opacity=".12"/>
+
+<rect x="16" y="28" width="38" height="72" rx="3" fill="#d9534f" stroke="#2b2433" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="22" y="34" width="26" height="28" rx="2" fill="#e8736f"/>
+<circle cx="47" cy="68" r="2.6" fill="#f2c14e" stroke="#2b2433" stroke-linejoin="round" stroke-linecap="round" stroke-width="1.6"/>
+<text x="35" y="54" font-family="Arial, sans-serif" font-weight="700" font-size="18" text-anchor="middle" fill="#fff">3</text>
+<g class="bob">
+<path d="M58 38 C50 26 52 18 60 16 C58 24 62 30 66 34 Z" fill="#c9b38a" stroke="#2b2433" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><path d="M90 38 C98 26 96 18 88 16 C90 24 86 30 82 34 Z" fill="#c9b38a" stroke="#2b2433" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<g class="earL"><ellipse cx="52" cy="46" rx="11" ry="5" fill="#f7f3ea" stroke="#2b2433" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" transform="rotate(20 52 46)"/></g>
+<g class="earR"><ellipse cx="96" cy="46" rx="11" ry="5" fill="#f7f3ea" stroke="#2b2433" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" transform="rotate(-20 96 46)"/></g>
+<path d="M60 40 C60 30 88 30 88 40 L86 70 C84 82 64 82 62 70 Z" fill="#f7f3ea" stroke="#2b2433" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<g class="blink"><circle cx="67" cy="50" r="4.2" fill="#2b2433"/><circle cx="68.4" cy="48.5" r="1.39" fill="#fff"/></g><g class="blink"><circle cx="81" cy="50" r="4.2" fill="#2b2433"/><circle cx="82.4" cy="48.5" r="1.39" fill="#fff"/></g><ellipse cx="74" cy="68" rx="9" ry="6" fill="#efe3d0"/>
+<path d="M71 67 h2 M75 67 h2" stroke="#2b2433" stroke-width="2" stroke-linecap="round"/>
+<g class="chew"><path d="M68 76 C68 90 80 90 80 76 Z" fill="#f7f3ea" stroke="#2b2433" stroke-linejoin="round" stroke-linecap="round" stroke-width="2.4"/><path d="M70 80 C72 96 76 96 78 80 Z" fill="#e2d7c4" stroke="#2b2433" stroke-linejoin="round" stroke-linecap="round" stroke-width="2.2"/></g>
+<ellipse cx="62" cy="60" rx="4.6" ry="2.8" fill="#ff8fa3" opacity=".6"/><ellipse cx="86" cy="60" rx="4.6" ry="2.8" fill="#ff8fa3" opacity=".6"/>
+</g>
+</g>
+</svg>

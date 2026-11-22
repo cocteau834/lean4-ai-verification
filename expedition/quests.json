@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "note": "The quest library. Each player's route (Players/<name>/route.json, written by the Game Master) can hide quests, open them early, change prerequisites, grant extra detour tokens, and add custom quests. Hints for quest X live in Quests/hints/X.md. Ratings (0 none, 1 a touch, 2 a big part, 3 the main focus) describe roughly how much of a quest goes to each region of the field; docs/QUEST_GUIDE.md is generated from them. See GAME_MASTER.md.",
+  "note": "The quest library. Each player's route (Players/<name>/route.json, written by the Game Master) can hide quests, open them early, change prerequisites, grant extra detour tokens, and add custom quests. Hints for quest X live in Quests/hints/X.md. Ratings (0 none, 1 a touch, 2 a big part, 3 the main focus) describe roughly how much of a quest goes to each region of the field; docs/QUEST_GUIDE.md is generated from them. See GAME_MASTER.md. Each quest has an animal companion that hatches when the quest is cleared (art in assets/companions/<ID>.svg).",
   "ranks": [
     [
       0,
@@ -114,7 +114,13 @@
       "xp": 20,
       "minutes": "15-20",
       "requires": [],
-      "blurb": "Why this game exists, a 3-minute tour of the field, and your interests. The Game Master plans your route from this."
+      "blurb": "Why this game exists, a 3-minute tour of the field, and your interests. The Game Master plans your route from this.",
+      "companion": {
+        "name": "Ember",
+        "animal": "fox",
+        "emoji": "🦊",
+        "says": "Keeps the campfire going while you plan your route."
+      }
     },
     {
       "id": "Q00",
@@ -132,7 +138,13 @@
       "features": {
         "programs": "yes"
       },
-      "difficulty": 1
+      "difficulty": 1,
+      "companion": {
+        "name": "Pip",
+        "animal": "duckling",
+        "emoji": "🐥",
+        "says": "Follows the first verifier it meets. Today, that's you."
+      }
     },
     {
       "id": "Q01",
@@ -153,7 +165,13 @@
       "features": {
         "programs": "yes"
       },
-      "difficulty": 1
+      "difficulty": 1,
+      "companion": {
+        "name": "Ripple",
+        "animal": "otter",
+        "emoji": "🦦",
+        "says": "Floats on its back, checking every claim twice."
+      }
     },
     {
       "id": "T0",
@@ -170,7 +188,13 @@
         "math": 3
       },
       "features": {},
-      "difficulty": 1
+      "difficulty": 1,
+      "companion": {
+        "name": "Rep",
+        "animal": "hamster",
+        "emoji": "🐹",
+        "says": "Never skips proof day."
+      }
     },
     {
       "id": "Q02",
@@ -188,7 +212,13 @@
         "code": 1
       },
       "features": {},
-      "difficulty": 1
+      "difficulty": 1,
+      "companion": {
+        "name": "Chisel",
+        "animal": "beaver",
+        "emoji": "🦫",
+        "says": "Has a tactic for every log."
+      }
     },
     {
       "id": "Q03",
@@ -208,7 +238,13 @@
       "features": {
         "programs": "yes"
       },
-      "difficulty": 2
+      "difficulty": 2,
+      "companion": {
+        "name": "Fib",
+        "animal": "bunny",
+        "emoji": "🐰",
+        "says": "Has 1, 1, 2, 3, 5, 8… siblings. Proved it by induction."
+      }
     },
     {
       "id": "Q04",
@@ -229,7 +265,13 @@
       "features": {
         "real_ai": "optional"
       },
-      "difficulty": 2
+      "difficulty": 2,
+      "companion": {
+        "name": "Delphi",
+        "animal": "owl",
+        "emoji": "🦉",
+        "says": "Asks every oracle: \"are you SURE?\""
+      }
     },
     {
       "id": "Q05",
@@ -249,7 +291,13 @@
         "trust": 3
       },
       "features": {},
-      "difficulty": 2
+      "difficulty": 2,
+      "companion": {
+        "name": "Zeta",
+        "animal": "beagle",
+        "emoji": "🐶",
+        "says": "Sniffs out smuggled axioms."
+      }
     },
     {
       "id": "Q06",
@@ -271,7 +319,13 @@
       "features": {
         "open_ended": "yes"
       },
-      "difficulty": 2
+      "difficulty": 2,
+      "companion": {
+        "name": "Specs",
+        "animal": "cat",
+        "emoji": "🐱",
+        "says": "Reads every line of the spec. Judges you a little."
+      }
     },
     {
       "id": "Q07",
@@ -295,7 +349,13 @@
         "programs": "yes",
         "open_ended": "yes"
       },
-      "difficulty": 2
+      "difficulty": 2,
+      "companion": {
+        "name": "Bandit",
+        "animal": "raccoon",
+        "emoji": "🦝",
+        "says": "Found three holes in the grader before breakfast. Reported all of them."
+      }
     },
     {
       "id": "S1",
@@ -315,7 +375,13 @@
         "eval": 1
       },
       "features": {},
-      "difficulty": 1
+      "difficulty": 1,
+      "companion": {
+        "name": "Monty",
+        "animal": "goat",
+        "emoji": "🐐",
+        "says": "Lives behind door 3. Or does it? You should switch."
+      }
     },
     {
       "id": "S2",
@@ -336,7 +402,13 @@
       "features": {
         "open_ended": "yes"
       },
-      "difficulty": 2
+      "difficulty": 2,
+      "companion": {
+        "name": "Paradox",
+        "animal": "chameleon",
+        "emoji": "🦎",
+        "says": "Green in every group. Purple overall."
+      }
     },
     {
       "id": "S3",
@@ -356,7 +428,13 @@
         "safety": 2
       },
       "features": {},
-      "difficulty": 2
+      "difficulty": 2,
+      "companion": {
+        "name": "Epsilon",
+        "animal": "hedgehog",
+        "emoji": "🦔",
+        "says": "Shares the statistics, never the secrets."
+      }
     },
     {
       "id": "A1",
@@ -378,7 +456,13 @@
         "programs": "yes",
         "real_ai": "optional"
       },
-      "difficulty": 2
+      "difficulty": 2,
+      "companion": {
+        "name": "Patch",
+        "animal": "frog",
+        "emoji": "🐸",
+        "says": "Eats bugs. Has a proof it ate all of them."
+      }
     },
     {
       "id": "A2",
@@ -398,7 +482,13 @@
         "eval": 1
       },
       "features": {},
-      "difficulty": 2
+      "difficulty": 2,
+      "companion": {
+        "name": "Robusto",
+        "animal": "pufferfish",
+        "emoji": "🐡",
+        "says": "Small nudges don't change its mind."
+      }
     },
     {
       "id": "A3",
@@ -422,7 +512,13 @@
         "real_ai": "yes",
         "open_ended": "yes"
       },
-      "difficulty": 3
+      "difficulty": 3,
+      "companion": {
+        "name": "Lemma",
+        "animal": "crow",
+        "emoji": "🐦",
+        "says": "Uses tools. Mostly Lean."
+      }
     },
     {
       "id": "V1",
@@ -443,7 +539,13 @@
       "features": {
         "programs": "yes"
       },
-      "difficulty": 2
+      "difficulty": 2,
+      "companion": {
+        "name": "Honk",
+        "animal": "goose",
+        "emoji": "🪿",
+        "says": "Guards the gate. Forbid always wins."
+      }
     },
     {
       "id": "V2",
@@ -466,7 +568,13 @@
         "programs": "yes",
         "open_ended": "yes"
       },
-      "difficulty": 2
+      "difficulty": 2,
+      "companion": {
+        "name": "Inky",
+        "animal": "octopus",
+        "emoji": "🐙",
+        "says": "Eight arms, one spec, zero loopholes."
+      }
     },
     {
       "id": "V3",
@@ -487,7 +595,13 @@
         "eval": 1
       },
       "features": {},
-      "difficulty": 2
+      "difficulty": 2,
+      "companion": {
+        "name": "Wooly",
+        "animal": "lamb",
+        "emoji": "🐑",
+        "says": "Bounces as high as it likes. Never past the fence."
+      }
     },
     {
       "id": "CAPSTONE",
@@ -517,7 +631,13 @@
         "real_ai": "yes",
         "open_ended": "yes"
       },
-      "difficulty": 3
+      "difficulty": 3,
+      "companion": {
+        "name": "Tux & Tex",
+        "animal": "penguins",
+        "emoji": "🐧",
+        "says": "Better together. Statistically significant."
+      }
     }
   ],
   "detour_tokens": 2

@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120" role="img" aria-label="Tux and Tex the penguins">
+<title>Tux and Tex the penguins</title>
+<style>
+.bob{animation:bob 2.6s ease-in-out infinite}
+.blink{transform-box:fill-box;transform-origin:center;animation:blink 4.2s infinite}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+@keyframes blink{0%,91%,100%{transform:scaleY(1)}94%{transform:scaleY(.12)}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+.p1,.p2{transform-box:view-box;animation:huddle 1.6s ease-in-out infinite alternate}.p1{transform-origin:38px 100px}.p2{transform-origin:82px 100px;animation-direction:alternate-reverse}@keyframes huddle{from{transform:rotate(-6deg)}to{transform:rotate(6deg)}}.trophy{animation:bob 1.6s ease-in-out infinite}</style>
+<defs><clipPath id="badge"><circle cx="60" cy="60" r="57"/></clipPath></defs>
+<circle cx="60" cy="60" r="57" fill="#fbe6d4"/>
+<g clip-path="url(#badge)">
+<ellipse cx="60" cy="103" rx="30" ry="5" fill="#2b2433" opacity=".12"/>
+
+<g class="p1">
+<ellipse cx="38" cy="78" rx="17" ry="22" fill="#2f3542" stroke="#2b2433" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<ellipse cx="38" cy="82" rx="11" ry="16" fill="#fffdf8"/>
+<circle cx="38" cy="50" r="13" fill="#2f3542" stroke="#2b2433" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<ellipse cx="38" cy="53" rx="8.5" ry="7" fill="#fffdf8"/>
+<g class="blink"><circle cx="34" cy="50" r="2.6" fill="#2b2433"/><circle cx="35.4" cy="48.5" r="0.86" fill="#fff"/></g><g class="blink"><circle cx="42" cy="50" r="2.6" fill="#2b2433"/><circle cx="43.4" cy="48.5" r="0.86" fill="#fff"/></g><path d="M35 55 L41 55 L38 59 Z" fill="#ff9f1c" stroke="#2b2433" stroke-linejoin="round" stroke-linecap="round" stroke-width="1.6"/>
+<ellipse cx="30" cy="56" rx="4.6" ry="2.8" fill="#ff8fa3" opacity=".6"/><ellipse cx="46" cy="56" rx="4.6" ry="2.8" fill="#ff8fa3" opacity=".6"/>
+<ellipse cx="32" cy="100" rx="6" ry="3" fill="#ff9f1c" stroke="#2b2433" stroke-linejoin="round" stroke-linecap="round" stroke-width="2"/><ellipse cx="44" cy="100" rx="6" ry="3" fill="#ff9f1c" stroke="#2b2433" stroke-linejoin="round" stroke-linecap="round" stroke-width="2"/>
+</g><g class="p2">
+<ellipse cx="82" cy="78" rx="17" ry="22" fill="#2f3542" stroke="#2b2433" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<ellipse cx="82" cy="82" rx="11" ry="16" fill="#fffdf8"/>
+<circle cx="82" cy="50" r="13" fill="#2f3542" stroke="#2b2433" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<ellipse cx="82" cy="53" rx="8.5" ry="7" fill="#fffdf8"/>
+<g class="blink"><circle cx="78" cy="50" r="2.6" fill="#2b2433"/><circle cx="79.4" cy="48.5" r="0.86" fill="#fff"/></g><g class="blink"><circle cx="86" cy="50" r="2.6" fill="#2b2433"/><circle cx="87.4" cy="48.5" r="0.86" fill="#fff"/></g><path d="M79 55 L85 55 L82 59 Z" fill="#ff9f1c" stroke="#2b2433" stroke-linejoin="round" stroke-linecap="round" stroke-width="1.6"/>
+<ellipse cx="74" cy="56" rx="4.6" ry="2.8" fill="#ff8fa3" opacity=".6"/><ellipse cx="90" cy="56" rx="4.6" ry="2.8" fill="#ff8fa3" opacity=".6"/>
+<ellipse cx="76" cy="100" rx="6" ry="3" fill="#ff9f1c" stroke="#2b2433" stroke-linejoin="round" stroke-linecap="round" stroke-width="2"/><ellipse cx="88" cy="100" rx="6" ry="3" fill="#ff9f1c" stroke="#2b2433" stroke-linejoin="round" stroke-linecap="round" stroke-width="2"/>
+</g>
+<g class="trophy"><path d="M52 30 h16 v6 a8 8 0 0 1 -16 0 z" fill="#f2c14e" stroke="#2b2433" stroke-linejoin="round" stroke-linecap="round" stroke-width="2.4"/>
+<path d="M57 44 h6 v6 h-6 z M54 50 h12 v4 h-12 z" fill="#f2c14e" stroke="#2b2433" stroke-linejoin="round" stroke-linecap="round" stroke-width="2"/>
+<path d="M60 18 l2 4 4 .6 -3 2.8 .8 4 -3.8 -2 -3.8 2 .8 -4 -3 -2.8 4 -.6 z" fill="#fff4b8" stroke="#f2c14e" stroke-width="1.4"/></g>
+
+</g>
+</svg>

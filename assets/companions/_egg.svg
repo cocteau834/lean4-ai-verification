@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120" role="img" aria-label="A mystery egg">
+<title>A mystery egg</title>
+<style>
+.bob{animation:bob 2.6s ease-in-out infinite}
+.blink{transform-box:fill-box;transform-origin:center;animation:blink 4.2s infinite}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+@keyframes blink{0%,91%,100%{transform:scaleY(1)}94%{transform:scaleY(.12)}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+.wobble{transform-box:view-box;transform-origin:60px 102px;animation:wobble 3.2s ease-in-out infinite}@keyframes wobble{0%,70%,100%{transform:rotate(0)}76%{transform:rotate(-7deg)}82%{transform:rotate(6deg)}88%{transform:rotate(-3deg)}}</style>
+<defs><clipPath id="badge"><circle cx="60" cy="60" r="57"/></clipPath></defs>
+<circle cx="60" cy="60" r="57" fill="#f1ede6"/>
+<g clip-path="url(#badge)">
+<ellipse cx="60" cy="103" rx="30" ry="5" fill="#2b2433" opacity=".12"/>
+<g class="wobble">
+<path d="M60 22 C80 22 92 52 92 72 C92 92 78 102 60 102 C42 102 28 92 28 72 C28 52 40 22 60 22 Z" fill="#fbf6ec" stroke="#2b2433" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="48" cy="56" r="4" fill="#e9dcc3"/><circle cx="70" cy="46" r="3" fill="#e9dcc3"/><circle cx="74" cy="80" r="5" fill="#e9dcc3"/><circle cx="46" cy="86" r="3" fill="#e9dcc3"/>
+<path d="M44 40 C48 32 54 30 58 30" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
+</g>
+</g>
+</svg>

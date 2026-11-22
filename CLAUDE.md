@@ -26,6 +26,7 @@ A gamified Lean 4 short course for two university students (a statistics senior 
 - `expedition/history.jsonl` is append-only and written only by `update` in CI. Never edit it by hand.
 - Quest metadata lives in `expedition/quests.json`; per-player routes live in `Players/<name>/route.json` (schema in GAME_MASTER.md).
 - Every quest (custom ones too) carries `ratings` (seven regions, 1–3, zeros omitted), `features` (`programs` / `real_ai` / `open_ended`: `"yes"` or `"optional"`) and `difficulty` (1–3). The region list lives in `quests.json` (`rating_criteria`); the narrative for each region is in `docs/QUEST_GUIDE.md` and the intake's field tour. Keep all three consistent.
+- Every quest has a `companion` in `quests.json` (`name`, `animal`, `emoji`, `says`) and animated art at `assets/companions/<ID>.svg` (120×120, CSS animation only, no scripts, `prefers-reduced-motion` respected, valid XML). Custom quests: art at `expedition/custom/<name>/companions/<ID>.svg`, or the emoji is shown instead. `_egg.svg` and `_egg_cracked.svg` are the unhatched stages.
 - The intake's interest lines (`**My interest (0–3):** N` under a `### <emoji> <region>` heading) are parsed by the engine. Keep that shape if you edit the template.
 - Toolchain is pinned: `lean-toolchain` = `leanprover/lean4:v4.36.0`, Mathlib tag `v4.36.0` in `lakefile.toml`. Change both together, then rebuild and re-verify every quest.
 

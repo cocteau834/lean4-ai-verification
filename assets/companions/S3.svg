@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120" role="img" aria-label="Epsilon the hedgehog">
+<title>Epsilon the hedgehog</title>
+<style>
+.bob{animation:bob 2.6s ease-in-out infinite}
+.blink{transform-box:fill-box;transform-origin:center;animation:blink 4.2s infinite}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+@keyframes blink{0%,91%,100%{transform:scaleY(1)}94%{transform:scaleY(.12)}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+.breathe{transform-box:view-box;transform-origin:60px 86px;animation:breathe 2.4s ease-in-out infinite}@keyframes breathe{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}</style>
+<defs><clipPath id="badge"><circle cx="60" cy="60" r="57"/></clipPath></defs>
+<circle cx="60" cy="60" r="57" fill="#d9eaf9"/>
+<g clip-path="url(#badge)">
+<ellipse cx="60" cy="103" rx="30" ry="5" fill="#2b2433" opacity=".12"/>
+
+<g class="breathe">
+<path d="M26 86 L22 70 L32 70 L28 56 L40 60 L40 44 L50 52 L56 36 L62 50 L70 38 L72 54 L84 46 L82 60 L94 58 L88 72 L98 76 L88 86 Z" fill="#8a6a4f" stroke="#2b2433" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+</g>
+<path d="M36 86 C34 66 46 58 60 58 C74 58 86 66 84 86 C80 98 40 98 36 86 Z" fill="#f2dcc0" stroke="#2b2433" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<g class="blink"><circle cx="52" cy="70" r="3.8" fill="#2b2433"/><circle cx="53.4" cy="68.5" r="1.25" fill="#fff"/></g><g class="blink"><circle cx="68" cy="70" r="3.8" fill="#2b2433"/><circle cx="69.4" cy="68.5" r="1.25" fill="#fff"/></g><ellipse cx="60" cy="79" rx="4.2" ry="3.2" fill="#2b2433"/><path d="M57 83 q1.5 2.0999999999999996 3 0 q1.5 2.0999999999999996 3 0" fill="none" stroke="#2b2433" stroke-linejoin="round" stroke-linecap="round" stroke-width="2.2"/><ellipse cx="46" cy="78" rx="4.6" ry="2.8" fill="#ff8fa3" opacity=".6"/><ellipse cx="74" cy="78" rx="4.6" ry="2.8" fill="#ff8fa3" opacity=".6"/>
+<rect x="52" y="90" width="16" height="12" rx="2.5" fill="#f2c14e" stroke="#2b2433" stroke-linejoin="round" stroke-linecap="round" stroke-width="2.4"/>
+<path d="M55 90 v-4 a5 5 0 0 1 10 0 v4" fill="none" stroke="#2b2433" stroke-linejoin="round" stroke-linecap="round" stroke-width="2.4"/>
+
+</g>
+</svg>

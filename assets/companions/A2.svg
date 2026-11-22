@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120" role="img" aria-label="Robusto the pufferfish">
+<title>Robusto the pufferfish</title>
+<style>
+.bob{animation:bob 2.6s ease-in-out infinite}
+.blink{transform-box:fill-box;transform-origin:center;animation:blink 4.2s infinite}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+@keyframes blink{0%,91%,100%{transform:scaleY(1)}94%{transform:scaleY(.12)}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+.puff{transform-box:view-box;transform-origin:60px 60px;animation:puff 2.8s ease-in-out infinite}@keyframes puff{0%,100%{transform:scale(.88)}45%,60%{transform:scale(1.06)}}.bubbles{animation:rise 2.8s linear infinite}@keyframes rise{from{transform:translateY(10px);opacity:0}30%{opacity:1}to{transform:translateY(-20px);opacity:0}}</style>
+<defs><clipPath id="badge"><circle cx="60" cy="60" r="57"/></clipPath></defs>
+<circle cx="60" cy="60" r="57" fill="#ebe2fb"/>
+<g clip-path="url(#badge)">
+<ellipse cx="60" cy="103" rx="30" ry="5" fill="#2b2433" opacity=".12"/>
+
+<g class="bubbles"><circle cx="30" cy="40" r="3" fill="#fff" opacity=".8"/><circle cx="24" cy="54" r="2" fill="#fff" opacity=".8"/></g>
+<g class="puff">
+<path d="M60 22 l3 8 l-6 0 z M60 98 l3 -8 l-6 0 z M24 60 l8 3 l0 -6 z M96 60 l-8 3 l0 -6 z M35 35 l7 5 l-4 4 z M85 35 l-7 5 l4 4 z M35 85 l7 -5 l-4 -4 z M85 85 l-7 -5 l4 -4 z" fill="#e0a93b" stroke="#2b2433" stroke-linejoin="round" stroke-linecap="round" stroke-width="2"/>
+<circle cx="60" cy="60" r="30" fill="#ffd166" stroke="#2b2433" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M36 70 C44 86 76 86 84 70 C76 78 44 78 36 70 Z" fill="#fff3cf"/>
+<circle cx="44" cy="46" r="3" fill="#e0a93b"/><circle cx="74" cy="42" r="3.5" fill="#e0a93b"/><circle cx="62" cy="38" r="2.5" fill="#e0a93b"/>
+<g class="blink"><circle cx="50" cy="56" r="4.5" fill="#2b2433"/><circle cx="51.4" cy="54.5" r="1.49" fill="#fff"/></g><g class="blink"><circle cx="70" cy="56" r="4.5" fill="#2b2433"/><circle cx="71.4" cy="54.5" r="1.49" fill="#fff"/></g><ellipse cx="60" cy="68" rx="4" ry="3.2" fill="#ff8fa3" stroke="#2b2433" stroke-linejoin="round" stroke-linecap="round" stroke-width="2"/><ellipse cx="42" cy="64" rx="4.6" ry="2.8" fill="#ff8fa3" opacity=".6"/><ellipse cx="78" cy="64" rx="4.6" ry="2.8" fill="#ff8fa3" opacity=".6"/>
+<path d="M90 60 C100 50 104 70 90 62" fill="#ffd166" stroke="#2b2433" stroke-linejoin="round" stroke-linecap="round" stroke-width="2.4"/>
+</g>
+</g>
+</svg>

@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120" role="img" aria-label="Ripple the otter">
+<title>Ripple the otter</title>
+<style>
+.bob{animation:bob 2.6s ease-in-out infinite}
+.blink{transform-box:fill-box;transform-origin:center;animation:blink 4.2s infinite}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+@keyframes blink{0%,91%,100%{transform:scaleY(1)}94%{transform:scaleY(.12)}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+.wave{animation:wave 2.4s linear infinite}@keyframes wave{from{transform:translateX(0)}to{transform:translateX(20px)}}</style>
+<defs><clipPath id="badge"><circle cx="60" cy="60" r="57"/></clipPath></defs>
+<circle cx="60" cy="60" r="57" fill="#e3e9fb"/>
+<g clip-path="url(#badge)">
+<ellipse cx="60" cy="103" rx="30" ry="5" fill="#2b2433" opacity=".12"/>
+
+<g class="bob">
+<path d="M34 96 C34 70 44 62 60 62 C76 62 86 70 86 96 Z" fill="#a0704c" stroke="#2b2433" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<ellipse cx="60" cy="84" rx="14" ry="14" fill="#e8cba8"/>
+<circle cx="42" cy="34" r="6" fill="#a0704c" stroke="#2b2433" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><circle cx="78" cy="34" r="6" fill="#a0704c" stroke="#2b2433" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="60" cy="48" r="21" fill="#a0704c" stroke="#2b2433" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<ellipse cx="60" cy="56" rx="14" ry="10" fill="#e8cba8"/>
+<g class="blink"><circle cx="52" cy="45" r="4.2" fill="#2b2433"/><circle cx="53.4" cy="43.5" r="1.39" fill="#fff"/></g><g class="blink"><circle cx="68" cy="45" r="4.2" fill="#2b2433"/><circle cx="69.4" cy="43.5" r="1.39" fill="#fff"/></g><ellipse cx="60" cy="52" rx="4" ry="3" fill="#2b2433"/><path d="M56.5 56 q1.75 2.4499999999999997 3.5 0 q1.75 2.4499999999999997 3.5 0" fill="none" stroke="#2b2433" stroke-linejoin="round" stroke-linecap="round" stroke-width="2.2"/><ellipse cx="46" cy="54" rx="4.6" ry="2.8" fill="#ff8fa3" opacity=".6"/><ellipse cx="74" cy="54" rx="4.6" ry="2.8" fill="#ff8fa3" opacity=".6"/>
+<path d="M44 55 L36 53 M44 58 L36 59 M76 55 L84 53 M76 58 L84 59" stroke="#2b2433" stroke-linejoin="round" stroke-linecap="round" stroke-width="1.6"/>
+<path d="M53 80 L60 70 L67 80 Z" fill="#ffb4c6" stroke="#2b2433" stroke-linejoin="round" stroke-linecap="round" stroke-width="2.2"/>
+<ellipse cx="51" cy="80" rx="5.5" ry="4.5" fill="#8a5d3e" stroke="#2b2433" stroke-linejoin="round" stroke-linecap="round" stroke-width="2.2"/><ellipse cx="69" cy="80" rx="5.5" ry="4.5" fill="#8a5d3e" stroke="#2b2433" stroke-linejoin="round" stroke-linecap="round" stroke-width="2.2"/>
+</g>
+<g class="wave"><path d="M-20 94 q10 -6 20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 V118 H-20 Z" fill="#7cc6f2" opacity=".85"/></g>
+
+</g>
+</svg>

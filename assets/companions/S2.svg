@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120" role="img" aria-label="Paradox the chameleon">
+<title>Paradox the chameleon</title>
+<style>
+.bob{animation:bob 2.6s ease-in-out infinite}
+.blink{transform-box:fill-box;transform-origin:center;animation:blink 4.2s infinite}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+@keyframes blink{0%,91%,100%{transform:scaleY(1)}94%{transform:scaleY(.12)}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+.skin path[fill]{animation:hue 6s ease-in-out infinite}.tailc{animation:huestroke 6s ease-in-out infinite}@keyframes hue{0%,100%{fill:#6cc070}50%{fill:#b07ad6}}@keyframes huestroke{0%,100%{stroke:#6cc070}50%{stroke:#b07ad6}}.look{animation:look 3s ease-in-out infinite}@keyframes look{0%,100%{transform:translate(0,0)}33%{transform:translate(-2.5px,1px)}66%{transform:translate(2px,-1.5px)}}</style>
+<defs><clipPath id="badge"><circle cx="60" cy="60" r="57"/></clipPath></defs>
+<circle cx="60" cy="60" r="57" fill="#d9eaf9"/>
+<g clip-path="url(#badge)">
+<ellipse cx="60" cy="103" rx="30" ry="5" fill="#2b2433" opacity=".12"/>
+
+<path d="M18 96 C40 90 80 90 104 96" fill="none" stroke="#8b5a3c" stroke-width="6" stroke-linecap="round"/>
+<g class="bob">
+<g class="skin">
+<path d="M84 84 C100 84 104 66 92 62 C84 60 82 70 88 72 C92 72 92 68 90 67" fill="none" stroke="#6cc070" stroke-width="7" stroke-linecap="round" class="tailc"/>
+<path d="M30 76 C30 58 46 50 62 52 C78 54 88 64 86 80 C84 92 40 94 30 76 Z" fill="#6cc070" stroke="#2b2433" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M44 60 q6 -6 12 0 q6 -6 12 0 q6 -6 12 0" fill="none" stroke="#4e9e57" stroke-width="2.5"/>
+<path d="M22 70 C22 58 34 52 44 58 C50 64 46 76 36 78 C28 78 22 76 22 70 Z" fill="#6cc070" stroke="#2b2433" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+</g>
+<circle cx="34" cy="64" r="8" fill="#fffbe6" stroke="#2b2433" stroke-linejoin="round" stroke-linecap="round" stroke-width="2.4"/>
+<g class="look"><circle cx="35" cy="64" r="3.4" fill="#2b2433"/></g>
+<path d="M24 72 q5 3 10 0" fill="none" stroke="#2b2433" stroke-linejoin="round" stroke-linecap="round" stroke-width="2"/>
+<path d="M48 88 v6 M70 88 v6" stroke="#4e9e57" stroke-width="5" stroke-linecap="round"/>
+</g>
+</g>
+</svg>

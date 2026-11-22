@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120" role="img" aria-label="Rep the hamster">
+<title>Rep the hamster</title>
+<style>
+.bob{animation:bob 2.6s ease-in-out infinite}
+.blink{transform-box:fill-box;transform-origin:center;animation:blink 4.2s infinite}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+@keyframes blink{0%,91%,100%{transform:scaleY(1)}94%{transform:scaleY(.12)}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+.spin{transform-box:view-box;transform-origin:60px 58px;animation:spin 1.6s linear infinite}@keyframes spin{to{transform:rotate(-360deg)}}.run{animation:run .35s ease-in-out infinite alternate}@keyframes run{from{transform:translateY(0)}to{transform:translateY(-2.5px)}}</style>
+<defs><clipPath id="badge"><circle cx="60" cy="60" r="57"/></clipPath></defs>
+<circle cx="60" cy="60" r="57" fill="#dff2e5"/>
+<g clip-path="url(#badge)">
+<ellipse cx="60" cy="103" rx="30" ry="5" fill="#2b2433" opacity=".12"/>
+
+<circle cx="60" cy="58" r="40" fill="none" stroke="#9aa6b2" stroke-width="5"/>
+<g class="spin"><path d="M60 18 V98 M20 58 H100 M32 30 L88 86 M88 30 L32 86" stroke="#c5cdd6" stroke-width="2.5"/></g>
+<circle cx="60" cy="58" r="40" fill="none" stroke="#2b2433" stroke-linejoin="round" stroke-linecap="round" stroke-width="2"/>
+<g class="run">
+<ellipse cx="60" cy="84" rx="19" ry="13" fill="#f0b67f" stroke="#2b2433" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<ellipse cx="60" cy="88" rx="11" ry="7" fill="#fff1df"/>
+<circle cx="47" cy="66" r="5" fill="#f0b67f" stroke="#2b2433" stroke-linejoin="round" stroke-linecap="round" stroke-width="2.4"/><circle cx="73" cy="66" r="5" fill="#f0b67f" stroke="#2b2433" stroke-linejoin="round" stroke-linecap="round" stroke-width="2.4"/>
+<circle cx="60" cy="74" r="13" fill="#f0b67f" stroke="#2b2433" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<ellipse cx="60" cy="78" rx="8" ry="5.5" fill="#fff1df"/>
+<g class="blink"><circle cx="55" cy="72" r="3" fill="#2b2433"/><circle cx="56.4" cy="70.5" r="0.99" fill="#fff"/></g><g class="blink"><circle cx="65" cy="72" r="3" fill="#2b2433"/><circle cx="66.4" cy="70.5" r="0.99" fill="#fff"/></g><circle cx="60" cy="77" r="1.8" fill="#ff7b93"/><ellipse cx="50" cy="77" rx="4.6" ry="2.8" fill="#ff8fa3" opacity=".6"/><ellipse cx="70" cy="77" rx="4.6" ry="2.8" fill="#ff8fa3" opacity=".6"/>
+</g>
+<path d="M60 98 L52 112 M60 98 L68 112" stroke-linejoin="round" stroke-linecap="round" stroke-width="4" stroke="#9aa6b2"/>
+
+</g>
+</svg>

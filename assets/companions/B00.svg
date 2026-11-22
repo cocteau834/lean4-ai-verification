@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120" role="img" aria-label="Ember the fox">
+<title>Ember the fox</title>
+<style>
+.bob{animation:bob 2.6s ease-in-out infinite}
+.blink{transform-box:fill-box;transform-origin:center;animation:blink 4.2s infinite}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+@keyframes blink{0%,91%,100%{transform:scaleY(1)}94%{transform:scaleY(.12)}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+.tail{transform-box:view-box;transform-origin:76px 86px;animation:wag 1.4s ease-in-out infinite alternate}@keyframes wag{from{transform:rotate(-10deg)}to{transform:rotate(8deg)}}</style>
+<defs><clipPath id="badge"><circle cx="60" cy="60" r="57"/></clipPath></defs>
+<circle cx="60" cy="60" r="57" fill="#fdf0d5"/>
+<g clip-path="url(#badge)">
+<ellipse cx="60" cy="103" rx="30" ry="5" fill="#2b2433" opacity=".12"/>
+
+<g class="tail"><path d="M76 90 C104 92 108 62 95 52 C94 68 88 78 74 80 Z" fill="#f28c38" stroke="#2b2433" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M95 52 C104 60 104 72 99 80 C96 70 95 62 95 52 Z" fill="#fff7ee"/></g>
+<g class="bob">
+<ellipse cx="60" cy="82" rx="21" ry="19" fill="#f28c38" stroke="#2b2433" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<ellipse cx="60" cy="86" rx="11" ry="12" fill="#fff7ee"/>
+<path d="M40 50 L44 24 L57 40 Z" fill="#f28c38" stroke="#2b2433" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><path d="M80 50 L76 24 L63 40 Z" fill="#f28c38" stroke="#2b2433" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M45 42 L46 31 L52 39 Z" fill="#5b2c1a"/><path d="M75 42 L74 31 L68 39 Z" fill="#5b2c1a"/>
+<path d="M36 52 C36 38 48 34 60 34 C72 34 84 38 84 52 C84 62 72 70 60 70 C48 70 36 62 36 52 Z" fill="#f28c38" stroke="#2b2433" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M44 58 C50 56 56 60 60 66 C64 60 70 56 76 58 C74 66 68 70 60 70 C52 70 46 66 44 58 Z" fill="#fff7ee"/>
+<g class="blink"><circle cx="51" cy="51" r="4.2" fill="#2b2433"/><circle cx="52.4" cy="49.5" r="1.39" fill="#fff"/></g><g class="blink"><circle cx="69" cy="51" r="4.2" fill="#2b2433"/><circle cx="70.4" cy="49.5" r="1.39" fill="#fff"/></g><ellipse cx="60" cy="61" rx="3.2" ry="2.4" fill="#2b2433"/><ellipse cx="46" cy="58" rx="4.6" ry="2.8" fill="#ff8fa3" opacity=".6"/><ellipse cx="74" cy="58" rx="4.6" ry="2.8" fill="#ff8fa3" opacity=".6"/>
+</g>
+</g>
+</svg>

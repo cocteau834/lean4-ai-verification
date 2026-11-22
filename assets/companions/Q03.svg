@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120" role="img" aria-label="Fib the bunny">
+<title>Fib the bunny</title>
+<style>
+.bob{animation:bob 2.6s ease-in-out infinite}
+.blink{transform-box:fill-box;transform-origin:center;animation:blink 4.2s infinite}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+@keyframes blink{0%,91%,100%{transform:scaleY(1)}94%{transform:scaleY(.12)}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+.hop{animation:hop 1.3s cubic-bezier(.3,0,.4,1) infinite}@keyframes hop{0%,100%{transform:translateY(0)}40%{transform:translateY(-9px)}60%{transform:translateY(-7px)}}.earL,.earR{transform-box:fill-box;transform-origin:50% 100%;animation:ear 1.3s ease-in-out infinite}.earR{animation-delay:.15s}@keyframes ear{0%,100%{transform:rotate(0)}45%{transform:rotate(-8deg)}}</style>
+<defs><clipPath id="badge"><circle cx="60" cy="60" r="57"/></clipPath></defs>
+<circle cx="60" cy="60" r="57" fill="#e3e9fb"/>
+<g clip-path="url(#badge)">
+<ellipse cx="60" cy="103" rx="30" ry="5" fill="#2b2433" opacity=".12"/>
+
+<g class="hop">
+<g class="earL"><ellipse cx="49" cy="26" rx="7" ry="18" fill="#f4f0f7" stroke="#2b2433" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><ellipse cx="49" cy="27" rx="3.2" ry="12" fill="#ffc2d1"/></g>
+<g class="earR"><ellipse cx="71" cy="26" rx="7" ry="18" fill="#f4f0f7" stroke="#2b2433" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><ellipse cx="71" cy="27" rx="3.2" ry="12" fill="#ffc2d1"/></g>
+<circle cx="84" cy="86" r="7" fill="#fff" stroke="#2b2433" stroke-linejoin="round" stroke-linecap="round" stroke-width="2.4"/>
+<ellipse cx="60" cy="82" rx="23" ry="18" fill="#f4f0f7" stroke="#2b2433" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="60" cy="54" r="19" fill="#f4f0f7" stroke="#2b2433" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<g class="blink"><circle cx="52" cy="52" r="4.2" fill="#2b2433"/><circle cx="53.4" cy="50.5" r="1.39" fill="#fff"/></g><g class="blink"><circle cx="68" cy="52" r="4.2" fill="#2b2433"/><circle cx="69.4" cy="50.5" r="1.39" fill="#fff"/></g><path d="M57 59 h6 l-3 3 z" fill="#ff7b93"/><path d="M57 62.5 q1.5 2.0999999999999996 3 0 q1.5 2.0999999999999996 3 0" fill="none" stroke="#2b2433" stroke-linejoin="round" stroke-linecap="round" stroke-width="2.2"/><ellipse cx="47" cy="59" rx="4.6" ry="2.8" fill="#ff8fa3" opacity=".6"/><ellipse cx="73" cy="59" rx="4.6" ry="2.8" fill="#ff8fa3" opacity=".6"/>
+<ellipse cx="50" cy="98" rx="7" ry="4" fill="#f4f0f7" stroke="#2b2433" stroke-linejoin="round" stroke-linecap="round" stroke-width="2.4"/><ellipse cx="70" cy="98" rx="7" ry="4" fill="#f4f0f7" stroke="#2b2433" stroke-linejoin="round" stroke-linecap="round" stroke-width="2.4"/>
+</g>
+</g>
+</svg>

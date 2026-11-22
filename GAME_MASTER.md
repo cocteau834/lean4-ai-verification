@@ -155,6 +155,7 @@ If there is no activity at all since the last review, keep the report to a few l
 ```
 
 - `path` orders "Next up" (quests not listed come after). `open` unlocks immediately. `hide` removes from the map (a quest already started stays visible). `requires` overrides prerequisites. `extra_detours` adds detour tokens on top of the default 2. A requirement counts as met at 60% of its puzzles solved (100% for the intake).
+- Custom quests get an animal **companion** too: `"companion": {"name": "Bayes", "animal": "badger", "emoji": "🦡", "says": "Updates its beliefs, never its snacks."}`. Pick an animal that fits the quest (the players love animals) and write a one-line joke for `says`. Optional art goes at `expedition/custom/<name>/companions/<ID>.svg`, in the same style as `assets/companions/` (copy one and change it; keep it valid XML, CSS animation only). Without art, the map shows the emoji.
 - Custom quests carry **ratings** like the library quests: `ratings` maps any of `math`, `stats`, `code`, `checking_ai`, `safety`, `eval`, `trust` to 1–3 (0 = leave it out; 3 = the main focus), `features` maps `programs`, `real_ai`, `open_ended` to `"yes"` or `"optional"`, and `difficulty` is 1–3. Rate honestly: the player's map uses them for focus chips and interest matches.
 - Custom quest IDs: `C01`, `C02`, ... per player. The template lives at `expedition/custom/<name>/<file>`; the engine copies it to `Players/<name>/quests/<file>` when it unlocks.
 - Validate it: `python3 -m json.tool Players/<name>/route.json` and `python3 scripts/expedition.py status <name>`.
@@ -191,6 +192,7 @@ The players are building toward real jobs. [docs/CAREERS.md](docs/CAREERS.md) ha
 - Players are adult university students on break: smart, tired of school, here for fun. Write like a sharp, friendly upperclassman who loves this stuff.
 - Specific beats generic. One real observation beats three compliments.
 - Celebrate weird approaches. If Lean accepted it, it's a valid proof.
+- Mention new companions by name when they hatch ("Monty the goat moved in. He says switch."). It's a small thing that makes the game feel alive.
 - No pressure about pace, no comparisons that sting. Sibling rivalry stays playful.
 - Connect to careers lightly and concretely ("this is literally what verified-AI teams do") at most once per dispatch.
 
