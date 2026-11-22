@@ -1,0 +1,524 @@
+{
+  "version": 1,
+  "note": "The quest library. Each player's route (Players/<name>/route.json, written by the Game Master) can hide quests, open them early, change prerequisites, grant extra detour tokens, and add custom quests. Hints for quest X live in Quests/hints/X.md. Ratings (0 none, 1 a touch, 2 a big part, 3 the main focus) describe roughly how much of a quest goes to each region of the field; docs/QUEST_GUIDE.md is generated from them. See GAME_MASTER.md.",
+  "ranks": [
+    [
+      0,
+      "Apprentice Verifier"
+    ],
+    [
+      100,
+      "Sorry Slayer"
+    ],
+    [
+      250,
+      "Tactic Tactician"
+    ],
+    [
+      450,
+      "Kernel Whisperer"
+    ],
+    [
+      700,
+      "Proof Architect"
+    ],
+    [
+      1000,
+      "Formal Legend"
+    ]
+  ],
+  "tracks": {
+    "start": "Basecamp",
+    "core": "Core trail",
+    "training": "Training",
+    "stats": "Statistician's Path",
+    "ai": "Machine Whisperer's Path",
+    "verified": "Verified Systems Path",
+    "coop": "Co-op",
+    "custom": "Custom (made for you)"
+  },
+  "rating_scale": {
+    "0": "none",
+    "1": "a touch",
+    "2": "a big part",
+    "3": "the main focus"
+  },
+  "rating_criteria": [
+    {
+      "id": "math",
+      "emoji": "🧮",
+      "name": "Pure math",
+      "short": "Proving things about numbers, functions and structures."
+    },
+    {
+      "id": "stats",
+      "emoji": "🎲",
+      "name": "Statistics & probability",
+      "short": "Proving facts about chance, data and estimators."
+    },
+    {
+      "id": "code",
+      "emoji": "💻",
+      "name": "Verified software & policies",
+      "short": "Proving that code, configurations and access rules do what they claim, for every input."
+    },
+    {
+      "id": "checking_ai",
+      "emoji": "🤖",
+      "name": "Checking AI output",
+      "short": "Deciding whether a proof, statement, spec or change an AI produced is what was asked for."
+    },
+    {
+      "id": "safety",
+      "emoji": "🛡️",
+      "name": "AI safety & security",
+      "short": "Proving a system can't do certain harmful things: flip under noise, leak a person, overspend."
+    },
+    {
+      "id": "eval",
+      "emoji": "📏",
+      "name": "Evaluation & benchmarks",
+      "short": "Measuring AI systems honestly, and telling a real improvement from noise."
+    },
+    {
+      "id": "trust",
+      "emoji": "🔍",
+      "name": "Trust & auditing",
+      "short": "Knowing exactly what \"verified\" guarantees: axioms, statement fidelity, graders that can be fooled."
+    }
+  ],
+  "rating_features": [
+    {
+      "id": "programs",
+      "emoji": "⌨️",
+      "name": "You write programs"
+    },
+    {
+      "id": "real_ai",
+      "emoji": "🧠",
+      "name": "A real AI in the loop"
+    },
+    {
+      "id": "open_ended",
+      "emoji": "🎨",
+      "name": "Open-ended: you design something"
+    }
+  ],
+  "quests": [
+    {
+      "id": "B00",
+      "title": "Basecamp",
+      "kind": "intake",
+      "file": "intake.md",
+      "track": "start",
+      "xp": 20,
+      "minutes": "15-20",
+      "requires": [],
+      "blurb": "Why this game exists, a 3-minute tour of the field, and your interests. The Game Master plans your route from this."
+    },
+    {
+      "id": "Q00",
+      "title": "Orientation",
+      "file": "Q00_Orientation.lean",
+      "track": "core",
+      "xp": 40,
+      "minutes": "20-30",
+      "requires": [],
+      "blurb": "A 20-minute tour of the moves you'll use everywhere: calculate, take apart, rewrite, the autopilots, exact?.",
+      "ratings": {
+        "math": 1,
+        "code": 1
+      },
+      "features": {
+        "programs": "yes"
+      },
+      "difficulty": 1
+    },
+    {
+      "id": "Q01",
+      "title": "First Contact",
+      "file": "Q01_FirstContact.lean",
+      "track": "core",
+      "xp": 60,
+      "minutes": "30-45",
+      "requires": [
+        "Q00"
+      ],
+      "blurb": "Lean as a calculator and a lie detector: #eval, rfl, norm_num, decide.",
+      "ratings": {
+        "math": 2,
+        "code": 1,
+        "checking_ai": 1
+      },
+      "features": {
+        "programs": "yes"
+      },
+      "difficulty": 1
+    },
+    {
+      "id": "T0",
+      "title": "Proof Gym",
+      "file": "T0_ProofGym.lean",
+      "track": "training",
+      "xp": 70,
+      "minutes": "30-45",
+      "requires": [
+        "Q01"
+      ],
+      "blurb": "Proofs rusty? Each puzzle shows the paper proof next to a mostly finished Lean version.",
+      "ratings": {
+        "math": 3
+      },
+      "features": {},
+      "difficulty": 1
+    },
+    {
+      "id": "Q02",
+      "title": "The Tactic Toolkit",
+      "file": "Q02_TacticToolkit.lean",
+      "track": "core",
+      "xp": 100,
+      "minutes": "45-60",
+      "requires": [
+        "Q01"
+      ],
+      "blurb": "Logic moves (intro, exact, constructor, cases, rw, use), then the Island of Knights and Knaves.",
+      "ratings": {
+        "math": 1,
+        "code": 1
+      },
+      "features": {},
+      "difficulty": 1
+    },
+    {
+      "id": "Q03",
+      "title": "Induction Dojo",
+      "file": "Q03_InductionDojo.lean",
+      "track": "core",
+      "xp": 80,
+      "minutes": "30-45",
+      "requires": [
+        "Q02"
+      ],
+      "blurb": "Induction on numbers and on lists: Gauss's trick, then verifying small programs (append, reverse, sum), then the Tower of Hanoi.",
+      "ratings": {
+        "math": 2,
+        "code": 2
+      },
+      "features": {
+        "programs": "yes"
+      },
+      "difficulty": 2
+    },
+    {
+      "id": "Q04",
+      "title": "The Oracle Lies",
+      "file": "Q04_TheOracleLies.lean",
+      "track": "core",
+      "xp": 120,
+      "minutes": "45-60",
+      "requires": [
+        "Q02"
+      ],
+      "blurb": "An AI made nine confident claims. Prove the true ones; catch the lies.",
+      "ratings": {
+        "math": 3,
+        "checking_ai": 3,
+        "eval": 1
+      },
+      "features": {
+        "real_ai": "optional"
+      },
+      "difficulty": 2
+    },
+    {
+      "id": "Q05",
+      "title": "The RH Audit",
+      "file": "Q05_TheRHAudit.lean",
+      "track": "core",
+      "xp": 120,
+      "minutes": "45-60",
+      "requires": [
+        "Q04"
+      ],
+      "blurb": "How do you trust a 17-million-line proof of the Riemann Hypothesis? Audit five suspicious submissions, then meet zeta.",
+      "ratings": {
+        "math": 2,
+        "checking_ai": 2,
+        "safety": 1,
+        "trust": 3
+      },
+      "features": {},
+      "difficulty": 2
+    },
+    {
+      "id": "Q06",
+      "title": "Spec Review",
+      "file": "Q06_SpecReview.lean",
+      "track": "core",
+      "xp": 120,
+      "minutes": "~45",
+      "requires": [
+        "Q05"
+      ],
+      "blurb": "An AI wrote eight statements: four from math problems, four specs for its own code. Find the four that drift (including specs so weak that wrong code passes), prove the evidence, and meet a proof that proves nothing.",
+      "ratings": {
+        "math": 2,
+        "code": 2,
+        "checking_ai": 3,
+        "trust": 3
+      },
+      "features": {
+        "open_ended": "yes"
+      },
+      "difficulty": 2
+    },
+    {
+      "id": "Q07",
+      "title": "Red-Team the Grader",
+      "file": "Q07_RedTeamTheGrader.lean",
+      "track": "core",
+      "xp": 130,
+      "minutes": "~45",
+      "requires": [
+        "Q05"
+      ],
+      "blurb": "Think like a reward-hacking AI: fool a proof grader four ways, then work out which checks catch each trick.",
+      "ratings": {
+        "code": 1,
+        "checking_ai": 1,
+        "safety": 3,
+        "eval": 2,
+        "trust": 3
+      },
+      "features": {
+        "programs": "yes",
+        "open_ended": "yes"
+      },
+      "difficulty": 2
+    },
+    {
+      "id": "S1",
+      "title": "Monty Hall, Verified",
+      "file": "S1_MontyHallVerified.lean",
+      "track": "stats",
+      "xp": 90,
+      "minutes": "30-45",
+      "requires": [
+        "Q02"
+      ],
+      "blurb": "Settle the most argued-about probability puzzle by counting worlds, then break it with Monty Fall.",
+      "ratings": {
+        "math": 1,
+        "stats": 3,
+        "code": 1,
+        "eval": 1
+      },
+      "features": {},
+      "difficulty": 1
+    },
+    {
+      "id": "S2",
+      "title": "Simpson's Paradox Lab",
+      "file": "S2_SimpsonsParadoxLab.lean",
+      "track": "stats",
+      "xp": 100,
+      "minutes": "45",
+      "requires": [
+        "S1"
+      ],
+      "blurb": "Certify the kidney-stone data, build your own paradox, and prove why it happens.",
+      "ratings": {
+        "math": 1,
+        "stats": 3,
+        "eval": 2
+      },
+      "features": {
+        "open_ended": "yes"
+      },
+      "difficulty": 2
+    },
+    {
+      "id": "S3",
+      "title": "Privacy Boss",
+      "file": "S3_PrivacyBoss.lean",
+      "track": "stats",
+      "xp": 140,
+      "minutes": "60",
+      "requires": [
+        "S2"
+      ],
+      "blurb": "Randomized response: prove a differential-privacy guarantee and an unbiased estimator.",
+      "ratings": {
+        "math": 1,
+        "stats": 2,
+        "code": 1,
+        "safety": 2
+      },
+      "features": {},
+      "difficulty": 2
+    },
+    {
+      "id": "A1",
+      "title": "Bug Bounty",
+      "file": "A1_BugBounty.lean",
+      "track": "ai",
+      "xp": 100,
+      "minutes": "45",
+      "requires": [
+        "Q02"
+      ],
+      "blurb": "AI-written code: prove the correct functions correct and catch the buggy ones.",
+      "ratings": {
+        "math": 1,
+        "code": 3,
+        "checking_ai": 3
+      },
+      "features": {
+        "programs": "yes",
+        "real_ai": "optional"
+      },
+      "difficulty": 2
+    },
+    {
+      "id": "A2",
+      "title": "Neural Net Safety Check",
+      "file": "A2_NeuralNetSafety.lean",
+      "track": "ai",
+      "xp": 120,
+      "minutes": "45-60",
+      "requires": [
+        "A1"
+      ],
+      "blurb": "ReLU facts, a robustness certificate for a tiny classifier, and an adversarial attack.",
+      "ratings": {
+        "math": 2,
+        "code": 1,
+        "safety": 3,
+        "eval": 1
+      },
+      "features": {},
+      "difficulty": 2
+    },
+    {
+      "id": "A3",
+      "title": "Build a Mini-Prover",
+      "file": "A3_MiniProver.lean",
+      "track": "ai",
+      "xp": 160,
+      "minutes": "60-90",
+      "requires": [
+        "A2"
+      ],
+      "blurb": "Run an LLM-plus-Lean proving loop on a mixed math-and-code benchmark, measure it, then improve it.",
+      "ratings": {
+        "math": 2,
+        "code": 2,
+        "checking_ai": 2,
+        "eval": 3
+      },
+      "features": {
+        "programs": "yes",
+        "real_ai": "yes",
+        "open_ended": "yes"
+      },
+      "difficulty": 3
+    },
+    {
+      "id": "V1",
+      "title": "The Policy Engine",
+      "file": "V1_PolicyEngine.lean",
+      "track": "verified",
+      "xp": 110,
+      "minutes": "~45",
+      "requires": [
+        "Q02"
+      ],
+      "blurb": "Verify a Cedar-style access-control engine: prove forbid always wins, check a company's policy over every request, and catch the leak in an AI's policy change.",
+      "ratings": {
+        "code": 3,
+        "checking_ai": 2,
+        "safety": 2
+      },
+      "features": {
+        "programs": "yes"
+      },
+      "difficulty": 2
+    },
+    {
+      "id": "V2",
+      "title": "Vericoding",
+      "file": "V2_Vericoding.lean",
+      "track": "verified",
+      "xp": 130,
+      "minutes": "45-60",
+      "requires": [
+        "V1",
+        "Q03"
+      ],
+      "blurb": "An AI submitted code, a spec and a proof. Break its weak spec, write a better one, and test your spec in both directions.",
+      "ratings": {
+        "code": 3,
+        "checking_ai": 3,
+        "trust": 2
+      },
+      "features": {
+        "programs": "yes",
+        "open_ended": "yes"
+      },
+      "difficulty": 2
+    },
+    {
+      "id": "V3",
+      "title": "Agent Guardrails",
+      "file": "V3_AgentGuardrails.lean",
+      "track": "verified",
+      "xp": 130,
+      "minutes": "45-60",
+      "requires": [
+        "V1",
+        "Q03"
+      ],
+      "blurb": "An AI agent has a company card. Jailbreak an AI-written guardrail, then prove a correct one keeps every possible agent within budget.",
+      "ratings": {
+        "code": 2,
+        "checking_ai": 1,
+        "safety": 3,
+        "eval": 1
+      },
+      "features": {},
+      "difficulty": 2
+    },
+    {
+      "id": "CAPSTONE",
+      "title": "SiblingBench",
+      "kind": "project",
+      "file": "CAPSTONE.md",
+      "track": "coop",
+      "xp": 300,
+      "minutes": "several sessions",
+      "requires": [],
+      "requires_any": [
+        "S2",
+        "A2",
+        "V2"
+      ],
+      "done_when": "capstone/REPORT.md",
+      "blurb": "Co-op: build a benchmark, test AI models with your prover, and analyze the results like a statistician.",
+      "ratings": {
+        "math": 1,
+        "stats": 3,
+        "code": 1,
+        "checking_ai": 2,
+        "eval": 3
+      },
+      "features": {
+        "programs": "yes",
+        "real_ai": "yes",
+        "open_ended": "yes"
+      },
+      "difficulty": 3
+    }
+  ],
+  "detour_tokens": 2
+}

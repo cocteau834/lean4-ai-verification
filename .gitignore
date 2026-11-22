@@ -1,0 +1,21 @@
+# Lean build output (Mathlib cache lives here; re-download with `lake exe cache get`)
+.lake/
+
+# Dad's private Game Master folder: verified solutions and review reports. Never commit.
+instructor/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# Which player this computer is (written by `expedition.py join`)
+.player
+.seen_cards
+
+# Mini-prover scratch files
+tools/miniprover/.tmp/
+
+# OS / editor
+.DS_Store
+Thumbs.db

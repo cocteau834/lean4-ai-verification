@@ -1,0 +1,14 @@
+name = "ProofOrItDidntHappen"
+version = "0.1.0"
+defaultTargets = ["Quests"]
+
+[[require]]
+name = "mathlib"
+scope = "leanprover-community"
+rev = "v4.36.0"
+
+# The quest templates. Player copies (Players/**) are checked file-by-file with
+# `lake env lean <file>` by scripts/expedition.py, so they are not part of this library.
+[[lean_lib]]
+name = "Quests"
+globs = ["Quests.+"]

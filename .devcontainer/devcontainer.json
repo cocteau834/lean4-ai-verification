@@ -1,0 +1,11 @@
+{
+  "name": "Proof or It Didn't Happen",
+  "image": "mcr.microsoft.com/devcontainers/python:3.12",
+  "hostRequirements": { "cpus": 2, "memory": "8gb" },
+  "remoteEnv": { "PATH": "${containerEnv:PATH}:/home/vscode/.elan/bin" },
+  "onCreateCommand": "bash .devcontainer/setup.sh",
+  "customizations": {
+    "vscode": { "extensions": ["leanprover.lean4"] },
+    "codespaces": { "openFiles": ["START_HERE.md"] }
+  }
+}

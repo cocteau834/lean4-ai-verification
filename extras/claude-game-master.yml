@@ -1,0 +1,97 @@
+# OPTIONAL: Claude as Game Master and tutor, running on GitHub.
+#
+# Off by default. To turn it on (see extras/README.md):
+#   1. Install the Claude GitHub App on this repo (https://github.com/apps/claude).
+#   2. Add the repo secret ANTHROPIC_API_KEY.
+#   3. Copy this file to .github/workflows/claude-game-master.yml and push.
+#
+# What it does:
+#   • A player pushes a new log entry or intake  → a Game Master dispatch pass runs and commits.
+#   • Someone writes "@claude ..." in an issue or comment → Claude answers as a hint-giving tutor.
+#   • Actions tab → "Game Master (Claude)" → Run workflow  → run any pass (plan | dispatch | review).
+name: Game Master (Claude)
+
+on:
+  push:
+    branches: [main]
+    paths: ["Players/*/log.md", "Players/*/intake.md"]
+  issue_comment:
+    types: [created]
+  issues:
+    types: [opened]
+  workflow_dispatch:
+    inputs:
+      pass:
+        description: "Which pass: plan | dispatch | review"
+        default: dispatch
+
+permissions:
+  contents: write
+  issues: write
+  pull-requests: write
+  actions: write
+  id-token: write
+
+concurrency:
+  group: game-master
+  cancel-in-progress: false
+
+jobs:
+  tutor:
+    if: >-
+      (github.event_name == 'issue_comment' && contains(github.event.comment.body, '@claude')) ||
+      (github.event_name == 'issues' && contains(github.event.issue.body, '@claude'))
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v6
+      - uses: leanprover/lean-action@v1
+      - uses: anthropics/claude-code-action@v1
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          claude_args: |
+            --model claude-opus-5-5
+            --max-turns 25
+            --allowedTools "Bash(lake env lean:*),Bash(python3 scripts/expedition.py status:*)"
+            --append-system-prompt "You are the TUTOR described in CLAUDE.md for a Lean 4 learning game. Answer with a hint ladder (nudge, then stronger hints inside <details> blocks). Never give a complete solution unless the player explicitly writes 'I give up, show me'. Keep it friendly and short."
+
+  game-master:
+    if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      PASS: ${{ inputs.pass || 'dispatch' }}
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+      - uses: leanprover/lean-action@v1
+      - uses: anthropics/claude-code-action@v1
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          prompt: |
+            Run a Game Master **${{ env.PASS }}** pass for this repository. Read GAME_MASTER.md and
+            .claude/commands/gm.md and follow them, with these differences because you are running
+            unattended in GitHub Actions:
+              - There is no instructor/ folder. Verify custom-quest solutions in /tmp/gm-solutions
+                and never write a solution anywhere inside the repository.
+              - A review pass cannot write the private report. Put a short, kind summary in
+                expedition/gm_journal.md instead, and limit yourself to adjustments players will see.
+              - Do NOT commit or push. The next workflow step commits your changes.
+              - Only touch the files GAME_MASTER.md allows the GM to write.
+          claude_args: |
+            --model claude-opus-5-5
+            --max-turns 80
+            --allowedTools "Read,Write,Edit,Bash(lake env lean:*),Bash(python3 scripts/expedition.py:*),Bash(python3 -m json.tool:*),Bash(git log:*),Bash(git diff:*),Bash(mkdir -p /tmp/gm-solutions:*)"
+      - name: Commit the Game Master's work and redraw maps
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git config user.name "game-master-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A Players expedition
+          if git diff --cached --quiet; then echo "No changes."; exit 0; fi
+          git commit -m "🧭 GM ${PASS} (automatic)"
+          git pull --rebase && git push
+          # Pushes made with the workflow token don't trigger other workflows, so ask for a redraw.
+          gh workflow run expedition.yml

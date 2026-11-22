@@ -1,0 +1,53 @@
+# After every push: compile each player's quest files, unlock earned quests,
+# redraw the maps and the README scoreboard, and commit the result.
+name: Expedition
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: expedition
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      # Always start from the LATEST main, not the commit that triggered this run.
+      # Runs are queued one at a time (see `concurrency`), so this includes the
+      # previous run's bot commit and every push that came before it.
+      - uses: actions/checkout@v6
+        with:
+          ref: main
+          fetch-depth: 0   # full history, for streak and night-owl badges
+
+      # Installs Lean, fetches the prebuilt Mathlib cache, and builds the quest
+      # templates (so a broken template fails loudly here).
+      - uses: leanprover/lean-action@v1
+
+      - name: Check proofs, unlock quests, redraw maps
+        run: python3 scripts/expedition.py update
+
+      - name: Commit the new map
+        run: |
+          git config user.name "expedition-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A README.md Players expedition docs/QUEST_GUIDE.md
+          if git diff --cached --quiet; then
+            echo "Nothing new to commit."
+            exit 0
+          fi
+          git commit -m "🗺️ Expedition update"
+          for attempt in 1 2 3; do
+            # Players only push their own files, and the bot only writes generated ones,
+            # so a rebase normally can't conflict; if it ever does, keep the bot's version.
+            if git pull --rebase -X theirs && git push; then exit 0; fi
+            sleep 5
+          done
+          exit 1
