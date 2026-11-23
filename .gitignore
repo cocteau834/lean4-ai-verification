@@ -1,5 +1,7 @@
 # Lean build output (Mathlib cache lives here; re-download with `lake exe cache get`)
 .lake/
+# Codespaces only: Lean and Mathlib's download cache, kept on the workspace disk (see .devcontainer/setup.sh)
+.lean-home/
 
 # Dad's private Game Master folder: verified solutions and review reports. Never commit.
 instructor/

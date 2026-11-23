@@ -8,6 +8,8 @@ Three ways in. **Pick A** unless you love setting up toolchains.
 2. Wait for the first boot. It installs Lean and downloads about 5 GB of prebuilt Mathlib, which takes roughly 5–10 minutes the first time. Later boots are fast. Grab a snack. 🍪
 3. When the terminal says `✅ Lean + Mathlib are ready`, you're set.
 
+If the first boot ends with an error instead (for example "No space left on device"), delete the codespace at [github.com/codespaces](https://github.com/codespaces) (⋯ → Delete) and create a fresh one. The setup log prints the free disk space before and after, which helps if you need to ask for help.
+
 Free GitHub accounts get a monthly Codespaces allowance that's plenty for this. Students can get more through the GitHub Student Developer Pack. Stop the codespace when you're done (it also stops itself after 30 idle minutes).
 
 ## B · On your own laptop
