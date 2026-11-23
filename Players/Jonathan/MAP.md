@@ -115,6 +115,7 @@ flowchart TD
 
 <sub>Newest first · times in UTC</sub>
 
-_Your trail starts with your first push._
+- `2026-11-23 13:05` 🔓 Unlocked **Q00 · Orientation**
+- `2026-11-23 13:03` 🐣 Joined the expedition
 
 <sub>Legend: 🆕 ready · 🛠️ in progress · ✅ cleared · 💥 doesn't compile · ⚠️ puzzle missing · 🔒 locked<br/>Focus: 🧮 Pure math · 🎲 Statistics & probability · 💻 Verified software & policies · 🤖 Checking AI output · 🛡️ AI safety & security · 📏 Evaluation & benchmarks · 🔍 Trust & auditing · ●●● main focus, ●●○ a big part, ●○○ a touch · ⌨️ you write programs · 🧠 a real AI in the loop (? = optional) · 🎨 open-ended</sub>

@@ -107,7 +107,36 @@ flowchart TD
 <!-- EXPEDITION:START -->
 ### 🏔️ Live scoreboard
 
-No verifiers yet. Run `python3 scripts/expedition.py join YourName`, then commit and push.
+| Verifier | Rank | XP | Cleared | Puzzles solved | Basecamp | Route | Menagerie | Badges |
+|---|---|---:|---:|---:|:---:|:---:|---|---|
+| [Jonathan](Players/Jonathan/MAP.md) | Apprentice Verifier | 0 | 0 | 0 | ⏳ | — | 🥚 | 🐣 |
+
+#### Quest board
+
+| Quest | Jonathan |
+|---|:---:|
+| B00 · Basecamp | 🆕 |
+| Q00 · Orientation | 🆕 |
+| Q01 · First Contact | 🔒 |
+| T0 · Proof Gym | 🔒 |
+| Q02 · The Tactic Toolkit | 🔒 |
+| Q03 · Induction Dojo | 🔒 |
+| Q04 · The Oracle Lies | 🔒 |
+| Q05 · The RH Audit | 🔒 |
+| Q06 · Spec Review | 🔒 |
+| Q07 · Red-Team the Grader | 🔒 |
+| S1 · Monty Hall, Verified | 🔒 |
+| S2 · Simpson's Paradox Lab | 🔒 |
+| S3 · Privacy Boss | 🔒 |
+| A1 · Bug Bounty | 🔒 |
+| A2 · Neural Net Safety Check | 🔒 |
+| A3 · Build a Mini-Prover | 🔒 |
+| V1 · The Policy Engine | 🔒 |
+| V2 · Vericoding | 🔒 |
+| V3 · Agent Guardrails | 🔒 |
+| CAPSTONE · SiblingBench | 🔒 |
+
+<sub>🆕 ready · 🛠️ in progress · ✅ cleared · 💥 doesn't compile · 🔒 locked · · not on this route · 🧭 personal route planned</sub>
 
 <!-- EXPEDITION:END -->
 

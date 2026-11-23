@@ -1,8 +1,410 @@
 {
  "engine": 2,
  "toolchain": "leanprover/lean4:v4.36.0",
- "players": {},
- "snapshots": {},
+ "players": {
+  "Jonathan": {
+   "rank": "Apprentice Verifier",
+   "xp": 0,
+   "badges": [
+    "Hatched"
+   ],
+   "route_planned": false,
+   "route_summary": null,
+   "activity": {
+    "commits": 1,
+    "days": 1,
+    "night_owl": false,
+    "last_push": "2026-11-23T06:03:23-07:00"
+   },
+   "log_entries": 0,
+   "latest_log": null,
+   "next_up": [
+    "B00",
+    "Q00"
+   ],
+   "detours_used": [],
+   "detours_left": 2,
+   "hints_revealed_total": 0,
+   "stalled_quests": [],
+   "career_cards": [],
+   "interests": {},
+   "avatar": "",
+   "companions_hatched": [],
+   "mix_so_far": {},
+   "interest_matches": [],
+   "quests": {
+    "B00": {
+     "title": "Basecamp",
+     "track": "start",
+     "status": "new",
+     "solved": 0,
+     "total": 19,
+     "hidden": false,
+     "custom": false,
+     "file": "Players/Jonathan/intake.md",
+     "problems": [],
+     "signals": null
+    },
+    "Q00": {
+     "title": "Orientation",
+     "track": "core",
+     "status": "new",
+     "solved": 0,
+     "total": 10,
+     "hidden": false,
+     "custom": false,
+     "file": "Players/Jonathan/quests/Q00_Orientation.lean",
+     "problems": [],
+     "signals": null
+    },
+    "Q01": {
+     "title": "First Contact",
+     "track": "core",
+     "status": "locked",
+     "solved": 0,
+     "total": 7,
+     "hidden": false,
+     "custom": false,
+     "file": "Players/Jonathan/quests/Q01_FirstContact.lean",
+     "problems": [],
+     "signals": null
+    },
+    "T0": {
+     "title": "Proof Gym",
+     "track": "training",
+     "status": "locked",
+     "solved": 0,
+     "total": 8,
+     "hidden": false,
+     "custom": false,
+     "file": "Players/Jonathan/quests/T0_ProofGym.lean",
+     "problems": [],
+     "signals": null
+    },
+    "Q02": {
+     "title": "The Tactic Toolkit",
+     "track": "core",
+     "status": "locked",
+     "solved": 0,
+     "total": 12,
+     "hidden": false,
+     "custom": false,
+     "file": "Players/Jonathan/quests/Q02_TacticToolkit.lean",
+     "problems": [],
+     "signals": null
+    },
+    "Q03": {
+     "title": "Induction Dojo",
+     "track": "core",
+     "status": "locked",
+     "solved": 0,
+     "total": 5,
+     "hidden": false,
+     "custom": false,
+     "file": "Players/Jonathan/quests/Q03_InductionDojo.lean",
+     "problems": [],
+     "signals": null
+    },
+    "Q04": {
+     "title": "The Oracle Lies",
+     "track": "core",
+     "status": "locked",
+     "solved": 0,
+     "total": 10,
+     "hidden": false,
+     "custom": false,
+     "file": "Players/Jonathan/quests/Q04_TheOracleLies.lean",
+     "problems": [],
+     "signals": null
+    },
+    "Q05": {
+     "title": "The RH Audit",
+     "track": "core",
+     "status": "locked",
+     "solved": 0,
+     "total": 7,
+     "hidden": false,
+     "custom": false,
+     "file": "Players/Jonathan/quests/Q05_TheRHAudit.lean",
+     "problems": [],
+     "signals": null
+    },
+    "Q06": {
+     "title": "Spec Review",
+     "track": "core",
+     "status": "locked",
+     "solved": 0,
+     "total": 8,
+     "hidden": false,
+     "custom": false,
+     "file": "Players/Jonathan/quests/Q06_SpecReview.lean",
+     "problems": [],
+     "signals": null
+    },
+    "Q07": {
+     "title": "Red-Team the Grader",
+     "track": "core",
+     "status": "locked",
+     "solved": 0,
+     "total": 8,
+     "hidden": false,
+     "custom": false,
+     "file": "Players/Jonathan/quests/Q07_RedTeamTheGrader.lean",
+     "problems": [],
+     "signals": null
+    },
+    "S1": {
+     "title": "Monty Hall, Verified",
+     "track": "stats",
+     "status": "locked",
+     "solved": 0,
+     "total": 6,
+     "hidden": false,
+     "custom": false,
+     "file": "Players/Jonathan/quests/S1_MontyHallVerified.lean",
+     "problems": [],
+     "signals": null
+    },
+    "S2": {
+     "title": "Simpson's Paradox Lab",
+     "track": "stats",
+     "status": "locked",
+     "solved": 0,
+     "total": 4,
+     "hidden": false,
+     "custom": false,
+     "file": "Players/Jonathan/quests/S2_SimpsonsParadoxLab.lean",
+     "problems": [],
+     "signals": null
+    },
+    "S3": {
+     "title": "Privacy Boss",
+     "track": "stats",
+     "status": "locked",
+     "solved": 0,
+     "total": 8,
+     "hidden": false,
+     "custom": false,
+     "file": "Players/Jonathan/quests/S3_PrivacyBoss.lean",
+     "problems": [],
+     "signals": null
+    },
+    "A1": {
+     "title": "Bug Bounty",
+     "track": "ai",
+     "status": "locked",
+     "solved": 0,
+     "total": 7,
+     "hidden": false,
+     "custom": false,
+     "file": "Players/Jonathan/quests/A1_BugBounty.lean",
+     "problems": [],
+     "signals": null
+    },
+    "A2": {
+     "title": "Neural Net Safety Check",
+     "track": "ai",
+     "status": "locked",
+     "solved": 0,
+     "total": 8,
+     "hidden": false,
+     "custom": false,
+     "file": "Players/Jonathan/quests/A2_NeuralNetSafety.lean",
+     "problems": [],
+     "signals": null
+    },
+    "A3": {
+     "title": "Build a Mini-Prover",
+     "track": "ai",
+     "status": "locked",
+     "solved": 0,
+     "total": 8,
+     "hidden": false,
+     "custom": false,
+     "file": "Players/Jonathan/quests/A3_MiniProver.lean",
+     "problems": [],
+     "signals": null
+    },
+    "V1": {
+     "title": "The Policy Engine",
+     "track": "verified",
+     "status": "locked",
+     "solved": 0,
+     "total": 9,
+     "hidden": false,
+     "custom": false,
+     "file": "Players/Jonathan/quests/V1_PolicyEngine.lean",
+     "problems": [],
+     "signals": null
+    },
+    "V2": {
+     "title": "Vericoding",
+     "track": "verified",
+     "status": "locked",
+     "solved": 0,
+     "total": 8,
+     "hidden": false,
+     "custom": false,
+     "file": "Players/Jonathan/quests/V2_Vericoding.lean",
+     "problems": [],
+     "signals": null
+    },
+    "V3": {
+     "title": "Agent Guardrails",
+     "track": "verified",
+     "status": "locked",
+     "solved": 0,
+     "total": 8,
+     "hidden": false,
+     "custom": false,
+     "file": "Players/Jonathan/quests/V3_AgentGuardrails.lean",
+     "problems": [],
+     "signals": null
+    },
+    "CAPSTONE": {
+     "title": "SiblingBench",
+     "track": "coop",
+     "status": "locked",
+     "solved": 0,
+     "total": 1,
+     "hidden": false,
+     "custom": false,
+     "file": "Players/Jonathan/quests/CAPSTONE.md",
+     "problems": [],
+     "signals": null
+    }
+   }
+  }
+ },
+ "snapshots": {
+  "Jonathan": {
+   "quests": {
+    "B00": {
+     "status": "new",
+     "solved": 0,
+     "total": 19,
+     "hash": "bbf89daa4e61af58"
+    },
+    "Q00": {
+     "status": "new",
+     "solved": 0,
+     "total": 10,
+     "hash": "b0897e2167b8e031"
+    },
+    "Q01": {
+     "status": "locked",
+     "solved": 0,
+     "total": 7,
+     "hash": null
+    },
+    "T0": {
+     "status": "locked",
+     "solved": 0,
+     "total": 8,
+     "hash": null
+    },
+    "Q02": {
+     "status": "locked",
+     "solved": 0,
+     "total": 12,
+     "hash": null
+    },
+    "Q03": {
+     "status": "locked",
+     "solved": 0,
+     "total": 5,
+     "hash": null
+    },
+    "Q04": {
+     "status": "locked",
+     "solved": 0,
+     "total": 10,
+     "hash": null
+    },
+    "Q05": {
+     "status": "locked",
+     "solved": 0,
+     "total": 7,
+     "hash": null
+    },
+    "Q06": {
+     "status": "locked",
+     "solved": 0,
+     "total": 8,
+     "hash": null
+    },
+    "Q07": {
+     "status": "locked",
+     "solved": 0,
+     "total": 8,
+     "hash": null
+    },
+    "S1": {
+     "status": "locked",
+     "solved": 0,
+     "total": 6,
+     "hash": null
+    },
+    "S2": {
+     "status": "locked",
+     "solved": 0,
+     "total": 4,
+     "hash": null
+    },
+    "S3": {
+     "status": "locked",
+     "solved": 0,
+     "total": 8,
+     "hash": null
+    },
+    "A1": {
+     "status": "locked",
+     "solved": 0,
+     "total": 7,
+     "hash": null
+    },
+    "A2": {
+     "status": "locked",
+     "solved": 0,
+     "total": 8,
+     "hash": null
+    },
+    "A3": {
+     "status": "locked",
+     "solved": 0,
+     "total": 8,
+     "hash": null
+    },
+    "V1": {
+     "status": "locked",
+     "solved": 0,
+     "total": 9,
+     "hash": null
+    },
+    "V2": {
+     "status": "locked",
+     "solved": 0,
+     "total": 8,
+     "hash": null
+    },
+    "V3": {
+     "status": "locked",
+     "solved": 0,
+     "total": 8,
+     "hash": null
+    },
+    "CAPSTONE": {
+     "status": "locked",
+     "solved": 0,
+     "total": 1,
+     "hash": null
+    }
+   },
+   "hints": {},
+   "detours": [],
+   "interests": {}
+  }
+ },
  "cache": {},
- "updated": "2026-11-22T20:54:48+00:00"
+ "updated": "2026-11-23T13:05:52+00:00"
 }
