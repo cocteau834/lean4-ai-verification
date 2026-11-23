@@ -109,13 +109,13 @@ flowchart TD
 
 | Verifier | Rank | XP | Cleared | Puzzles solved | Basecamp | Route | Menagerie | Badges |
 |---|---|---:|---:|---:|:---:|:---:|---|---|
-| [Jonathan](Players/Jonathan/MAP.md) | Apprentice Verifier | 0 | 0 | 0 | ⏳ | — | 🥚 | 🐣 |
+| 🐙 [Jonathan](Players/Jonathan/MAP.md) | Apprentice Verifier | 20 | 1 | 0 | ✅ | — | 🦊 | 🐣 🏕️ |
 
 #### Quest board
 
 | Quest | Jonathan |
 |---|:---:|
-| B00 · Basecamp | 🆕 |
+| B00 · Basecamp | ✅ |
 | Q00 · Orientation | 🆕 |
 | Q01 · First Contact | 🔒 |
 | T0 · Proof Gym | 🔒 |

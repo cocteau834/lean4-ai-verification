@@ -1,2 +1,5 @@
 {"t": "2026-11-23T13:03:23+00:00", "player": "Jonathan", "event": "joined"}
 {"t": "2026-11-23T13:05:52+00:00", "player": "Jonathan", "event": "unlocked", "quest": "Q00", "title": "Orientation"}
+{"t": "2026-11-23T14:15:42+00:00", "player": "Jonathan", "event": "update", "status": "cleared", "solved": 19, "total": 19, "quest": "B00", "title": "Basecamp"}
+{"t": "2026-11-23T14:15:42+00:00", "player": "Jonathan", "event": "cleared", "solved": 19, "total": 19, "quest": "B00", "title": "Basecamp"}
+{"t": "2026-11-23T14:15:42+00:00", "player": "Jonathan", "event": "interests", "interests": {"math": 0, "stats": 0, "code": 3, "checking_ai": 2, "safety": 2, "eval": 1, "trust": 1}}

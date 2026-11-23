@@ -4,22 +4,22 @@
  "players": {
   "Jonathan": {
    "rank": "Apprentice Verifier",
-   "xp": 0,
+   "xp": 20,
    "badges": [
-    "Hatched"
+    "Hatched",
+    "Basecamp"
    ],
    "route_planned": false,
    "route_summary": null,
    "activity": {
-    "commits": 1,
+    "commits": 2,
     "days": 1,
     "night_owl": false,
-    "last_push": "2026-11-23T06:03:23-07:00"
+    "last_push": "2026-11-23T07:15:42-07:00"
    },
    "log_entries": 0,
    "latest_log": null,
    "next_up": [
-    "B00",
     "Q00"
    ],
    "detours_used": [],
@@ -27,17 +27,31 @@
    "hints_revealed_total": 0,
    "stalled_quests": [],
    "career_cards": [],
-   "interests": {},
-   "avatar": "",
-   "companions_hatched": [],
+   "interests": {
+    "math": 0,
+    "stats": 0,
+    "code": 3,
+    "checking_ai": 2,
+    "safety": 2,
+    "eval": 1,
+    "trust": 1
+   },
+   "avatar": "🐙",
+   "companions_hatched": [
+    "B00"
+   ],
    "mix_so_far": {},
-   "interest_matches": [],
+   "interest_matches": [
+    "V1",
+    "V3",
+    "V2"
+   ],
    "quests": {
     "B00": {
      "title": "Basecamp",
      "track": "start",
-     "status": "new",
-     "solved": 0,
+     "status": "cleared",
+     "solved": 19,
      "total": 19,
      "hidden": false,
      "custom": false,
@@ -280,10 +294,10 @@
   "Jonathan": {
    "quests": {
     "B00": {
-     "status": "new",
-     "solved": 0,
+     "status": "cleared",
+     "solved": 19,
      "total": 19,
-     "hash": "bbf89daa4e61af58"
+     "hash": "5d09d60b2b87acd6"
     },
     "Q00": {
      "status": "new",
@@ -402,9 +416,17 @@
    },
    "hints": {},
    "detours": [],
-   "interests": {}
+   "interests": {
+    "math": 0,
+    "stats": 0,
+    "code": 3,
+    "checking_ai": 2,
+    "safety": 2,
+    "eval": 1,
+    "trust": 1
+   }
   }
  },
  "cache": {},
- "updated": "2026-11-23T13:05:52+00:00"
+ "updated": "2026-11-23T14:18:04+00:00"
 }
