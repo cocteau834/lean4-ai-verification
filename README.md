@@ -27,7 +27,7 @@ flowchart LR
 
 ## Start here (15 minutes)
 
-1. **Open a dev environment.** The easiest way is GitHub Codespaces (Code → Codespaces → *Create codespace on main*); the first boot takes a few minutes while it downloads Mathlib. Or install locally. Both are covered in **[START_HERE.md](START_HERE.md)**.
+1. **Set up your laptop** (once, about 30 minutes, mostly downloads): VS Code with the Lean 4 extension, git, Python 3, and Mathlib's prebuilt files. Step-by-step for Windows and Mac in **[START_HERE.md](START_HERE.md)**. On Windows, type `py` wherever this repo says `python3`.
 2. In the terminal: `python3 scripts/expedition.py join YourName`
 3. Fill in **`Players/YourName/intake.md`** (Basecamp, 15–20 min). It opens with why this game exists and a quick tour of the seven regions of the field, which you rate by interest. This is how your route gets planned.
 4. Commit and push. Then open `Players/YourName/quests/Q00_Orientation.lean`: a 20-minute tour of Lean, and your first quest.

@@ -47,6 +47,14 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
+
+# Emoji everywhere: make sure printing them can't crash on a Windows code page.
+for _stream in (sys.stdout, sys.stderr):
+    try:
+        if (_stream.encoding or "").lower().replace("-", "") != "utf8":
+            _stream.reconfigure(encoding="utf-8", errors="replace")
+    except (AttributeError, ValueError):
+        pass
 QUESTS_DIR = ROOT / "Quests"
 PLAYERS_DIR = ROOT / "Players"
 TEMPLATE_DIR = PLAYERS_DIR / "_template"
@@ -206,8 +214,11 @@ def find_lake() -> str | None:
     found = shutil.which("lake")
     if found:
         return found
-    candidate = Path.home() / ".elan" / "bin" / "lake"
-    return str(candidate) if candidate.exists() else None
+    for name in ("lake", "lake.exe"):
+        candidate = Path.home() / ".elan" / "bin" / name
+        if candidate.exists():
+            return str(candidate)
+    return None
 
 
 def toolchain() -> str:
@@ -221,12 +232,12 @@ def compile_lean(path: Path, lake: str | None, text_only: bool, timeout: int = 9
         return {"errors": 0, "sorries": len(lines), "sorry_lines": lines, "messages": [], "verified": False}
     try:
         proc = subprocess.run([lake, "env", "lean", str(path)], cwd=ROOT, capture_output=True,
-                              text=True, timeout=timeout)
+                              text=True, encoding="utf-8", errors="replace", timeout=timeout)
     except subprocess.TimeoutExpired:
         return {"errors": 1, "sorries": 0, "sorry_lines": [], "messages": ["Lean timed out on this file."],
                 "verified": True}
     output = (proc.stdout or "") + (proc.stderr or "")
-    output = output.replace(str(ROOT) + os.sep, "")
+    output = output.replace(str(ROOT) + os.sep, "").replace(str(ROOT).replace("\\", "/") + "/", "")
     error_lines = [ln for ln in output.splitlines() if ERROR_RE.search(ln)]
     if proc.returncode != 0 and not error_lines:
         error_lines = ["Lean exited with an error: " + output.strip()[:300]]
@@ -594,8 +605,8 @@ def git_activity(player: str) -> dict:
     try:
         # Only files the player writes, so Game Master and bot commits don't count as their activity.
         paths = [f"Players/{player}/{x}" for x in ("quests", "log.md", "intake.md", "hints.json", "detours.json")]
-        out = subprocess.run(["git", "log", "--format=%an|%aI", "--", *paths], cwd=ROOT,
-                             capture_output=True, text=True, timeout=60).stdout
+        out = subprocess.run(["git", "log", "--format=%an|%aI", "--", *paths], cwd=ROOT, capture_output=True,
+                             text=True, encoding="utf-8", errors="replace", timeout=60).stdout
     except (OSError, subprocess.TimeoutExpired):
         out = ""
     rows = [ln.split("|", 1) for ln in out.splitlines() if "|" in ln]

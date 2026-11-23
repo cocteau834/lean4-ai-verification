@@ -2,9 +2,9 @@
   "name": "Proof or It Didn't Happen",
   "image": "mcr.microsoft.com/devcontainers/python:3.12",
   "hostRequirements": {
-    "cpus": 2,
-    "memory": "8gb",
-    "storage": "32gb"
+    "cpus": 8,
+    "memory": "32gb",
+    "storage": "64gb"
   },
   "remoteEnv": {
     "PATH": "${containerEnv:PATH}:/home/vscode/.elan/bin"
@@ -17,12 +17,10 @@
       ],
       "settings": {
         "files.watcherExclude": {
-          "**/.lake/**": true,
-          "**/.lean-home/**": true
+          "**/.lake/**": true
         },
         "search.exclude": {
-          "**/.lake": true,
-          "**/.lean-home": true
+          "**/.lake": true
         }
       }
     },

@@ -1,0 +1,5 @@
+# Keep LF line endings on every platform (Windows checkouts included), so quest files,
+# hashes and Lean's line numbers match what GitHub Actions sees.
+* text=auto eol=lf
+*.png binary
+*.jpg binary

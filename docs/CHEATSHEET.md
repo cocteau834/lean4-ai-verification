@@ -1,6 +1,6 @@
 # Cheat sheet
 
-One page of moves. For how to think about them, how to get unstuck and how to search Mathlib, see the [Field Guide](FIELD_GUIDE.md).
+One page of moves. (On Windows, type `py` wherever this repo says `python3`.) For how to think about them, how to get unstuck and how to search Mathlib, see the [Field Guide](FIELD_GUIDE.md).
 
 ## Reading the Infoview
 

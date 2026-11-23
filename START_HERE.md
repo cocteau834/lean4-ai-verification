@@ -1,33 +1,68 @@
 # 🎒 Start here
 
-Three ways in. **Pick A** unless you love setting up toolchains.
+Setup happens once, on your own laptop, and takes about 30 minutes, mostly waiting for downloads. After that, every session is: open VS Code, play, push.
 
-## A · GitHub Codespaces (recommended: nothing to install)
+## What you're installing, and why
 
-1. On the repo page: **Code → Codespaces → Create codespace on main**.
-2. Wait for the first boot. It installs Lean and downloads about 5 GB of prebuilt Mathlib, which takes roughly 5–10 minutes the first time. Later boots are fast. Grab a snack. 🍪
-3. When the terminal says `✅ Lean + Mathlib are ready`, you're set.
+| Piece | What it does |
+|---|---|
+| **VS Code** + the **Lean 4** extension | Where you write proofs. The *Infoview* panel shows Lean's live feedback as you type. |
+| **Lean** + **Mathlib** | The proof checker and its huge math library. Mathlib comes prebuilt, so you download it instead of compiling it. |
+| **git** | Saves your work to GitHub. Every push gets checked there, and your map and menagerie are redrawn. |
+| **Python 3** (3.9 or newer) | Runs the game script: `status`, `hint`, `guide`, the hatching animation. No extra packages needed. |
 
-If the first boot ends with an error instead (for example "No space left on device"), delete the codespace at [github.com/codespaces](https://github.com/codespaces) (⋯ → Delete) and create a fresh one. The setup log prints the free disk space before and after, which helps if you need to ask for help.
+You need about **12 GB of free disk space** (Lean is 3 GB, Mathlib about 8 GB) and 8 GB of RAM.
 
-Free GitHub accounts get a monthly Codespaces allowance that's plenty for this. Students can get more through the GitHub Student Developer Pack. Stop the codespace when you're done (it also stops itself after 30 idle minutes).
+## Set up on Windows
 
-## B · On your own laptop
-
-1. Install [VS Code](https://code.visualstudio.com/) and [git](https://git-scm.com/).
-2. In VS Code, install the **Lean 4** extension (by leanprover). Its setup guide installs `elan`, Lean's version manager.
-3. Clone the repo and download Mathlib's prebuilt files:
+1. Install **[Git for Windows](https://git-scm.com/download/win)**. The default options are fine.
+2. Install **[VS Code](https://code.visualstudio.com/)**.
+3. Check Python: open a terminal (PowerShell) and run `py --version`. If it prints 3.9 or newer, you're set. If not, install Python from [python.org](https://www.python.org/downloads/) and tick **"Add python.exe to PATH"** in the installer.
+4. Get the repo. In VS Code press **Ctrl+Shift+P**, run **Git: Clone**, choose **Clone from GitHub**, and sign in to GitHub in the browser when asked. Pick the repo and save it to a short folder such as `C:\code`. Open it when VS Code offers.
+5. Install the **Lean 4** extension (Extensions panel on the left, search "Lean 4", publisher *leanprover*). When it offers to install Lean (via *elan*, Lean's installer), accept. Then **close and reopen VS Code** so the terminal can find Lean.
+6. Open VS Code's terminal (**Ctrl+`**) and download Mathlib:
    ```bash
-   git clone <this repo's URL>
-   cd <repo folder>
    lake exe cache get
    ```
-4. Open the folder in VS Code. Needs about 6 GB of disk and 8 GB of RAM.
+   This takes 5–15 minutes. Grab a snack. 🍪
 
-## C · Just curious? Zero setup
+**On Windows, type `py` wherever these instructions say `python3`.** For example: `py scripts/expedition.py status`.
 
-- [live.lean-lang.org](https://live.lean-lang.org): Lean + Mathlib in your browser. Paste any quest in to play (you'll still need A or B to push).
-- [The Natural Number Game](https://adam.math.hhu.de/#/g/leanprover-community/nng4): the classic gamified intro. Great for a lazy evening; tell the Game Master in your log if you played it.
+## Set up on a Mac
+
+1. Open Terminal and run `xcode-select --install`. This installs git and Python 3. If it says they're already installed, you're set.
+2. Install **[VS Code](https://code.visualstudio.com/)**.
+3. Get the repo. In VS Code press **Cmd+Shift+P**, run **Git: Clone**, choose **Clone from GitHub**, and sign in to GitHub in the browser when asked. Save it anywhere you like and open it when VS Code offers.
+4. Install the **Lean 4** extension (Extensions panel, search "Lean 4", publisher *leanprover*). When it offers to install Lean (via *elan*), accept. Then **quit and reopen VS Code**.
+5. Open VS Code's terminal (**Ctrl+`**) and download Mathlib:
+   ```bash
+   lake exe cache get
+   ```
+   This takes 5–15 minutes. 🍪
+
+## Both: tell git who you are (once)
+
+```bash
+git config --global user.name "Your Name"
+git config --global user.email "the-email-on-your-GitHub-account"
+```
+
+(If you'd rather not use your real email, GitHub gives you a private *noreply* address under Settings → Emails.) The first time you push, a browser window may ask you to approve the sign-in. Say yes.
+
+## Check that it works
+
+Open `Quests/Q00_Orientation.lean` in VS Code. After 10–30 seconds, the Infoview on the right shows goals, and each `sorry` has a yellow squiggle with no red ones. That means Lean and Mathlib are working. 🎉
+
+**If something goes wrong:**
+- *`lake` (or `lean`) is not recognized:* close and reopen VS Code (or your terminal). Lean's installer adds itself to your PATH, but already-open windows don't see it.
+- *"Filename too long" (Windows):* run `git config --global core.longpaths true`, then clone again into a short folder like `C:\code`.
+- *Everything is red after `import Mathlib`:* run `lake exe cache get` again; the download was probably interrupted.
+- *Still stuck:* write down the exact error message and ask Dad (or paste it into Claude).
+
+## Other ways in
+
+- **GitHub Codespaces** (a backup if your laptop can't take it). On the repo page: **Code → Codespaces → Create codespace on main**, and it sets itself up in about 15 minutes. Mathlib is too big for the standard Codespace, so the repo asks for GitHub's 8-core machine with 64 GB of disk. That uses the free monthly allowance about four times faster than the standard one (roughly 15 hours a month on a free account; check GitHub's billing page for current numbers). Stop it when you're done.
+- **Just curious?** [live.lean-lang.org](https://live.lean-lang.org) runs Lean + Mathlib in your browser (paste any quest in; you still need a real setup to push). [The Natural Number Game](https://adam.math.hhu.de/#/g/leanprover-community/nng4) is the classic gamified intro; tell the Game Master in your log if you played it.
 
 ---
 
