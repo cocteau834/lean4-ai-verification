@@ -6,7 +6,7 @@ Every quest in this repo is a small version of something people get paid to do. 
 
 ## What the jobs are called
 
-Titles like "AI proof researcher" or "AI alignment analyst" don't really exist. Here are the ones that do:
+Here are some careers that use Lean or the skills it builds:
 
 | Area | Titles to search for | Who hires (examples) | Lean every day? |
 |---|---|---|---|
