@@ -7,7 +7,7 @@ Replace each *answer here* line with your answer (a few words is fine). Tick box
 ---
 
 **First, the important question. Pick your expedition animal** (one emoji, or just type the animal's name; it appears next to your name on your map and the scoreboard, e.g. 🦦 🐧 🦊 🐙):
-_answer here_
+🐙
 
 Every quest also hides an egg 🥚. Clear the quest and an animal companion hatches into your menagerie. There are 20 to collect.
 
@@ -33,65 +33,66 @@ Read each one (about 30 seconds), then rate it: **0** not for me · **1** curiou
 Proving things about numbers, functions and structures. It's where Lean started, and still where AI provers are tested hardest.
 **Out there:** Mathlib, Lean's shared math library, holds hundreds of thousands of theorems. In 2026 AI systems solved open Erdős problems in Lean, and the Riemann Hypothesis proof was checked in it.
 **Main focus in:** T0 · Proof Gym, Q04 · The Oracle Lies.
-**My interest (0–3):** _answer here_
+**My interest (0–3):** 0
 
 ### 🎲 Statistics & probability
 Proving facts about chance and data: that an estimator is unbiased, that a privacy mechanism really protects people, why a paradox happens. Still rare in Lean, which makes it a gap worth filling.
 **Out there:** AWS's SampCert is a Lean-verified implementation of differential privacy, the math behind privacy-safe data releases. And AI evaluation runs on statistics: is a 4-point improvement real, or noise?
 **Main focus in:** S1 · Monty Hall, S2 · Simpson's Paradox, the CAPSTONE.
-**My interest (0–3):** _answer here_
+**My interest (0–3):** 0
 
 ### 💻 Verified software & policies
 Proving that code, configurations and access rules do what they claim, for every input, not just the inputs you tested.
 **Out there:** AWS's Cedar access-control language is verified in Lean, and companies like AWS, Microsoft and chip makers employ verification engineers. Much of this work also uses other tools (Dafny, Verus, Rocq); the ideas carry over.
 **Main focus in:** A1 · Bug Bounty, V1 · The Policy Engine, V2 · Vericoding.
-**My interest (0–3):** _answer here_
+**My interest (0–3):** 3
 
 ### 🤖 Checking AI output
 Deciding whether something an AI produced (a proof, a formal statement, code, a spec, a policy change) is what was actually asked for. Lean checks the proof; a person still has to check that it proves the right thing.
 **Out there:** AI companies pay reviewers to check AI-written Lean, and as AI writes more code, reviewing its specs becomes the human's main job.
 **Main focus in:** Q04 · The Oracle Lies, Q06 · Spec Review, A1 · Bug Bounty, V2 · Vericoding.
-**My interest (0–3):** _answer here_
+**My interest (0–3):** 2
 
 ### 🛡️ AI safety & security
 Proving that a system *can't* do certain harmful things: a classifier can't be flipped by tiny noise, a data release can't expose one person, an AI agent can't overspend, a grader can't be gamed.
 **Out there:** robustness certificates for neural networks, differential privacy, guardrails for AI agents, and research programs such as the UK's ARIA *Safeguarded AI*. Most safety work doesn't use Lean; in the formal-methods corner, it's a real edge.
 **Main focus in:** Q07 · Red-Team the Grader, A2 · Neural Net Safety, V3 · Agent Guardrails.
-**My interest (0–3):** _answer here_
+**My interest (0–3):** 2
 
 ### 📏 Evaluation & benchmarks
 Measuring AI systems honestly: building test sets, running models, and telling a real improvement from luck. Lean problems make great benchmarks because every answer is checked automatically.
 **Out there:** every AI lab has evaluation teams, and government AI institutes and independent evaluators test models before release.
 **Main focus in:** A3 · Build a Mini-Prover, the CAPSTONE (SiblingBench).
-**My interest (0–3):** _answer here_
+**My interest (0–3):** 1
 
 ### 🔍 Trust & auditing
 Knowing exactly what "verified" guarantees, and what it doesn't: a hidden axiom, a statement that quietly drifted from the original, a grader an AI could fool.
 **Out there:** this is how the Riemann Hypothesis proof was certified in a day: independent rebuilds, independent checkers, and tools confirming that the statement really was RH.
 **Main focus in:** Q05 · The RH Audit, Q06 · Spec Review, Q07 · Red-Team the Grader.
-**My interest (0–3):** _answer here_
+**My interest (0–3):** 1
 
 The full table, with every quest rated on all seven, is in [docs/QUEST_GUIDE.md](../../docs/QUEST_GUIDE.md).
 
 ## 2 · Where you're coming from
 
 **School, year, major(s):**
-_answer here_
+Colorado School of Mines, 1992, B.S. in Engineering Physics with minor in Mathematics
+University of Colorado, 1999, M.S in Telecommunications
 
 **Proof-based math so far.** Which courses, if any? (Discrete math, intro to proofs, real analysis, abstract algebra, ...)
-_answer here_
+None
 
 **Programming.** Languages you're comfortable in, and roughly how comfortable (e.g. "Python: very, R: daily, Java: one class"):
-_answer here_
+Python limited, Java daily, shell scripts limited, Typescript limited
 
 **Stats / ML / AI courses taken or in progress:**
-_answer here_
+None
 
 **Git and GitHub.** How at home are you? (never used / I push and pray / fluent)
-_answer here_
+I push and pray
 
 **Ever touched a proof assistant (Lean, Coq/Rocq, Isabelle) or the Natural Number Game?**
-_answer here_
+No
 
 ## 3 · Rate yourself (1 = "what's that", 5 = "could teach it")
 
@@ -99,43 +100,43 @@ Replace the `?` with a number.
 
 | Skill | 1–5 |
 |---|:---:|
-| Writing proofs by hand | ? |
-| Induction | ? |
-| Logic (∀, ∃, →, ¬) | ? |
-| Probability | ? |
-| Statistical inference (estimators, CIs, tests) | ? |
-| Linear algebra | ? |
-| Neural networks / deep learning | ? |
-| Using LLM APIs in code | ? |
-| Functional programming | ? |
+| Writing proofs by hand | 1 |
+| Induction | 1 |
+| Logic (∀, ∃, →, ¬) | 1 |
+| Probability | 1 |
+| Statistical inference (estimators, CIs, tests) | 1 |
+| Linear algebra | 1 |
+| Neural networks / deep learning | 1 |
+| Using LLM APIs in code | 1 |
+| Functional programming | 1 |
 
 ## 4 · What else sounds fun? (tick as many as you like)
 
-- [ ] Logic puzzles (knights & knaves, riddles)
+- [x] Logic puzzles (knights & knaves, riddles)
 - [ ] Famous math (primes, the Riemann Hypothesis, irrational numbers)
-- [ ] Building tools: an AI that writes proofs
-- [ ] Breaking things on purpose (red-teaming, finding loopholes)
+- [x] Building tools: an AI that writes proofs
+- [x] Breaking things on purpose (red-teaming, finding loopholes)
 - [ ] Competing with my sibling
 - [ ] Cooperating with my sibling
-- [ ] Something I could show an employer
+- [x] Something I could show an employer
 - [ ] Other: _optional_
 
 **One topic from your classes or life you'd love to see turned into a quest** (seriously, anything: a stats method, a game, a sport, an algorithm):
-_answer here_
+A quest related to death metal music, but I'm not sure just what that would be.  Can you surprise me?
 
 ## 5 · How you like to play
 
 **When you're stuck, do you prefer** (pick one: a nudge / a worked example / to grind it out / to ask an AI)?
-_answer here_
+a worked example.  and if that doesn't work, a nudge.  and finally ask AI
 
 **Short and many, or long and deep?** (e.g. "lots of 5-minute puzzles" vs "one big problem per session")
-_answer here_
+short and many
 
 **Roughly how many sessions over break do you realistically see yourself doing?** (honest guesses welcome, zero judgment)
-_answer here_
+3
 
 **Anything that would make this feel like homework, so the Game Master can avoid it?**
-_answer here_
+Can't think of anything
 
 ## 6 · Where you might be headed (optional, but it helps)
 
@@ -143,15 +144,15 @@ Do any of these sound interesting? [docs/CAREERS.md](../../docs/CAREERS.md) expl
 
 - [ ] Research engineer or scientist on an AI-for-math / AI-reasoning team
 - [ ] Formalization: writing and checking Lean for AI systems or big math projects
-- [ ] Formal verification of software (proving code correct)
+- [x] Formal verification of software (proving code correct)
 - [ ] AI safety and alignment research
-- [ ] Evaluating AI systems (benchmarks, statistics, red-teaming)
+- [x] Evaluating AI systems (benchmarks, statistics, red-teaming)
 - [ ] Data science or statistics, with AI on the side
 - [ ] Grad school in math, CS or statistics
 - [ ] No idea yet (totally fine)
 
 **Jobs or fields you're curious about, in your own words:**
-_optional_
+Somehow helping companies adopt use of AI and guide it for best effect
 
 **What do you already think about AI that writes math or code? Excited, skeptical, both?**
-_optional_
+Kind of exciting.  But also a little scary that AI can crunch so much more quickly that it might be a long time for humans to start to understand what it has already been able to prove/produce.
