@@ -53,6 +53,8 @@ git config --global user.email "the-email-on-your-GitHub-account"
 
 Open `Quests/Q00_Orientation.lean` in VS Code. After 10–30 seconds, the Infoview on the right shows goals, and each `sorry` has a yellow squiggle with no red ones. That means Lean and Mathlib are working. 🎉
 
+Now that this little test is done, close `Quests/Q00_Orientation.lean`. Later you will open your own copy of this file (`Players/YourName/quests/Q00_Orientation.lean`, created when you join below).
+
 **If something goes wrong:**
 - *`lake` (or `lean`) is not recognized:* close and reopen VS Code (or your terminal). Lean's installer adds itself to your PATH, but already-open windows don't see it.
 - *"Filename too long" (Windows):* run `git config --global core.longpaths true`, then clone again into a short folder like `C:\code`.
